@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.max-width {
+  @apply lg:mx-auto lg:px-24 xl:px-48 px-5;
+}
+.bg-gradient {
+  @apply bg-gradient-to-r from-sky-500 via-purple-500 to-pink-600;
+}
+.text-gradient {
+  @apply bg-clip-text bg-gradient text-transparent;
+}
+.section {
+  @apply pt-28 xl:pt-28 2xl:pt-44;
+}
+.text-content {
+  @apply dark:text-light-content text-dark-content;
+}
+body {
+  overflow-x: hidden;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-img{
+  border-radius: 50%;
+  border-width: 5px;
+  border-color: rgba(137, 43, 226, 0.4);
+  filter: grayscale(.55);
+  transition: .5s;
+}
+
+.profile-img:hover{
+  filter: grayscale(0.25);
+}
+
+.project-card{
+  transition: .5s;
+}
+
+.project-card:hover{
+  scale: 1.1;
+}
+
+.alert {
+  margin-top: 1vh;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: #fa6a31;
+  border-color: #f5c6cb;
+}
+
+.skill-card{
+  display: flex;
+  padding: 10%;
+  height: 100px;
+  width: 100px;
+  border-width: 1px;
+  border-radius: 5%;
+  border-color: rgb(160, 159, 159);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+  align-items: center;
+  justify-content: center;
+  transition: .5s;
+}
+
+.skill-card img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.skill-card:hover{
+  scale: 1.1;
+}
