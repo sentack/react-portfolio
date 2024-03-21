@@ -41,8 +41,10 @@ export const personalDetails = {
   name: "Sena Takele",
   tagline: "But, you can call me Sentack :)",
   img: profile,
-  about: `I'm Sena Takele, a software engineering student with a passion for web development, mobile app development, and problem-solving. I enjoy creating solutions and staying up-to-date with the latest Skills.`,
-};
+  about1: `Hello! I'm Sena Takele, a passionate and organized software engineering student. Web development, mobile app development, and creative problem-solving are my true passions.`,
+  about2: `I take great pleasure in crafting innovative solutions and staying updated with the latest skills and technologies in the field. I have a knack for creating websites from the ground up, utilizing my strong analytical and problem-solving skills to adapt to new technologies quickly.`,
+  about3: `Beyond my software engineering pursuits, I have over 5 years of experience in graphic design, video production, and photography. From designing logos to creating captivating web designs, motion graphics, and video editing, I excel at producing visually appealing content that effectively communicates messages while keeping up with current trends.`,  
+  about4: `Continual learning is a top priority for me, and I take pride in mastering new software and techniques to stay ahead of the game. I'm motivated by pushing boundaries and making valuable contributions to the ever-evolving world of technology.`};
 
 // Social Media
 export const socialMediaUrl = {

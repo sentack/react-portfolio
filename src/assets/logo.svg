@@ -1,17 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="79" height="48" viewBox="0 0 800 300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0079FF" />
-      <stop offset="100%" stop-color="#800080" />
+    <linearGradient id="gradient" gradientTransform="rotate(45)">
+      <stop offset="0%" stop-color="#673AB7" />
+      <stop offset="100%" stop-color="#2196F3" />
     </linearGradient>
   </defs>
-  <text x="50%" y="50%" font-family="Your Handwriting Font, cursive" font-size="130" text-anchor="middle" dominant-baseline="middle">
-    <tspan fill="url(#gradient)">S</tspan>
-    <tspan fill="url(#gradient)">e</tspan>
-    <tspan fill="url(#gradient)">n</tspan>
-    <tspan fill="url(#gradient)">t</tspan>
-    <tspan fill="url(#gradient)">a</tspan>
-    <tspan fill="url(#gradient)">c</tspan>
-    <tspan fill="url(#gradient)">k</tspan>
-  </text>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#gradient)" stroke-width="10" />
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="120" font-family="Arial, sans-serif" fill="url(#gradient)">S</text>
 </svg>
