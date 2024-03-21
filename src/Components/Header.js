@@ -8,6 +8,7 @@ function Header() {
   const toggleClass = () => {
     setIsOpen(!isOpen);
   };
+  
 
   return (
     <header className="container mx-auto md:flex justify-between py-2 max-width">
@@ -54,6 +55,9 @@ function Header() {
             <NavLink to="/projects" onClick={toggleClass}>
               Projects
             </NavLink>
+          </li>
+          <li className="pb-1 md:pb-0">
+            <a href="resume.pdf" download="resume.pdf">Resume</a>
           </li>
           <li>
             <NavLink to="/contact" onClick={toggleClass}>
