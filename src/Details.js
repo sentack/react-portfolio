@@ -69,7 +69,7 @@ export const workDetails = [
     Duration: "2017 - 2021",
   },
   {
-    Position: "Networking Installation and Configuration",
+    Position: "Network Installation and Configuration",
     Company: `Commercial Bank of Ethiopia`,
     Location: "Addis Ababa",
     Type: "Internship",
