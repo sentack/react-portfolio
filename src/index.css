@@ -26,6 +26,11 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.page-link:hover{
+  color: white;
+}
+
+
 .profile-img{
   border-radius: 50%;
   border-width: 5px;
