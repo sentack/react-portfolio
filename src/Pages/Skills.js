@@ -27,10 +27,10 @@ function Skills() {
           Skills I've been working with recently
         </p>
         <div className="text-content mx-auto items-center gap-10 skill-buttons">
-        <button className="active" id="frontend" onClick={handleButtonClick}>Frontend</button>
-        <button id="backend" onClick={handleButtonClick}>Backend</button>
-        <button id="others" onClick={handleButtonClick}>Others</button>
-        <button id="tools" onClick={handleButtonClick}>Tools</button>
+          <button className="active" id="frontend" onClick={handleButtonClick}>Frontend</button>
+          <button id="backend" onClick={handleButtonClick}>Backend</button>
+          <button id="others" onClick={handleButtonClick}>Others</button>
+          <button id="tools" onClick={handleButtonClick}>Tools</button>
         </div>
       </section>
       <section className="grid grid-cols-2 grid-cols-3 md:grid-cols-4 xl:grid-cols-6 items-center gap-10 pt-6">

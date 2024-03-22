@@ -69,7 +69,7 @@ function Header() {
           <li>
             <a href={twitter} target="_blank" rel="noreferrer noopener">
               <svg
-                className="dark:fill-light-heading fill-dark-heading page-link"
+                className="dark:fill-light-heading fill-dark-heading"
                 width="32"
                 height="32"
                 viewBox="0 0 32 32"
@@ -83,7 +83,7 @@ function Header() {
           <li>
             <a href={linkdein} target="_blank" rel="noreferrer noopener">
               <svg
-                className="dark:fill-light-heading fill-dark-heading page-link"
+                className="dark:fill-light-heading fill-dark-heading"
                 width="30"
                 height="30"
                 viewBox="0 0 30 30"
@@ -97,7 +97,7 @@ function Header() {
           <li>
             <a href={github} target="_blank" rel="noreferrer noopener">
               <svg
-                className="dark:fill-light-heading fill-dark-heading page-link"
+                className="dark:fill-light-heading fill-dark-heading"
                 width="30"
                 height="30"
                 viewBox="0 0 30 30"
