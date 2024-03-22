@@ -11,7 +11,7 @@ function Header() {
   
 
   return (
-    <header className="container mx-auto md:flex justify-between py-2 max-width">
+    <header className="container mx-auto md:flex justify-between py-1 max-width">
       <div className="flex justify-between items-center py-2 md:py-10">
         <NavLink to="/">
           <img className="w-14 logo_img" src={logos.logogradient} alt="logo" />

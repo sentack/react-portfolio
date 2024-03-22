@@ -89,6 +89,32 @@ body::-webkit-scrollbar {
   box-shadow: -5px 5px 5px rgba(119, 119, 212, 0.137);
 }
 
+.skill-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-buttons button{
+  padding: 5px;
+  border-radius: 5%;
+  border-color: rgba(119, 119, 212, 0.048);
+  box-shadow: -1px 1px 1px rgba(119, 119, 212, 0.137);
+  border-width: 1px;
+  transition: .5s;
+}
+
+.skill-buttons .active{
+  background-color: white;
+  color: black;
+  box-shadow: -5px 5px 5px rgba(119, 119, 212, 0.137);
+}
+
+.skill-buttons button:hover{
+  box-shadow: -5px 5px 5px rgba(119, 119, 212, 0.137);
+}
+
+
 .work-card{
   transition: .5s;
 }

@@ -28,6 +28,7 @@ import php from "./assets/techstack/php.png";
 // Project Images
 import projectImage1 from "./assets/projects/project1.png";
 import projectImage2 from "./assets/projects/project2.png";
+import projectImage3 from "./assets/projects/project3.png";
 
 // Logos
 export const logos = {
@@ -105,24 +106,24 @@ export const eduDetails = [
 ];
 
 // Tech Stack and Tools
-export const techStackDetails = {
-  html: html,
-  css: css,
-  js: js,
-  react: react,
-  sass: sass,
-  tailwind: tailwind,
-  bootstrap: bootstrap,
-  vscode: vscode,
-  cplus: cplus,
-  npm: npm,
-  git: git,
-  github: github,
-  figma: figma,
-  php: php,
-  py: py,
-  java: java,
-};
+export const techStackDetails = [
+  { name: "HTML", image: html, type: "frontend" },
+  { name: "CSS", image: css, type: "frontend" },
+  { name: "JavaScript", image: js, type: "frontend" },
+  { name: "React", image: react, type: "frontend" },
+  { name: "Sass", image: sass, type: "frontend" },
+  { name: "Tailwind CSS", image: tailwind, type: "frontend" },
+  { name: "Bootstrap", image: bootstrap, type: "frontend" },
+  { name: "Visual Studio Code", image: vscode, type: "tools" },
+  { name: "C++", image: cplus, type: "others" },
+  { name: "npm", image: npm, type: "tools" },
+  { name: "Git", image: git, type: "tools" },
+  { name: "GitHub", image: github, type: "tools" },
+  { name: "Figma", image: figma, type: "tools" },
+  { name: "PHP", image: php, type: "backend" },
+  { name: "Python", image: py, type: "backend" },
+  { name: "Java", image: java, type: "others" }
+];
 
 // Project Details 
 export const projectDetails = [
@@ -140,6 +141,14 @@ export const projectDetails = [
     description: `Website for Salma Furniture. The website features their exquisite furniture collection and offers a user-friendly browsing experience for visitors.`,
     techstack: "HTML/CSS, JavaScript, PHP",
     previewLink: "",
+    githubLink: "https://github.com/sentack",
+  },
+  {
+    title: "Simple Chatbot",
+    image: projectImage3,
+    description: `This is my personal project I'm working on using NodeJS. It uses OpenAI gpt3.5 API and google translate API to understand different languages and reply in English. This is still in development!  `,
+    techstack: "HTML/CSS, JavaScript, NodeJs, ExpressJs",
+    previewLink: "https://eth-chatbot.onrender.com/",
     githubLink: "https://github.com/sentack",
   },
 ];
