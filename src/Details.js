@@ -29,6 +29,7 @@ import php from "./assets/techstack/php.png";
 import projectImage1 from "./assets/projects/project1.png";
 import projectImage2 from "./assets/projects/project2.png";
 import projectImage3 from "./assets/projects/project3.png";
+import projectImage4 from "./assets/projects/project4.png";
 
 // Logos
 export const logos = {
@@ -45,7 +46,8 @@ export const personalDetails = {
   about1: `Hello! I'm Sena Takele, a passionate and organized software engineering student. Web development, mobile app development, and creative problem-solving are my true passions.`,
   about2: `I take great pleasure in crafting innovative solutions and staying updated with the latest skills and technologies in the field. I have a knack for creating websites from the ground up, utilizing my strong analytical and problem-solving skills to adapt to new technologies quickly.`,
   about3: `Beyond my software engineering pursuits, I have over 5 years of experience in graphic design, video production, and photography. From designing logos to creating captivating web designs, motion graphics, and video editing, I excel at producing visually appealing content that effectively communicates messages while keeping up with current trends.`,  
-  about4: `Continual learning is a top priority for me, and I take pride in mastering new software and techniques to stay ahead of the game. I'm motivated by pushing boundaries and making valuable contributions to the ever-evolving world of technology.`};
+  about4: `Continual learning is a top priority for me, and I take pride in mastering new software and techniques to stay ahead of the game. I'm motivated by pushing boundaries and making valuable contributions to the ever-evolving world of technology.`
+};
 
 // Social Media
 export const socialMediaUrl = {
@@ -149,6 +151,14 @@ export const projectDetails = [
     description: `This is my personal project I'm working on using NodeJS. It uses OpenAI gpt3.5 API and google translate API to understand different languages and reply in English. This is still in development!  `,
     techstack: "HTML/CSS, JavaScript, NodeJs, ExpressJs",
     previewLink: "https://eth-chatbot.onrender.com/",
+    githubLink: "https://github.com/sentack",
+  },
+  {
+    title: "Personal Portfolio",
+    image: projectImage4,
+    description: `This is my personal portfolio site I'm working on using React. It's a user-friendly website that showcases my Education Background, Work Experience and Some other Projects I made before. `,
+    techstack: "HTML/CSS, JavaScript, ReactJs, NodeJs",
+    previewLink: "https://sentack-portfolio.vercel.app/",
     githubLink: "https://github.com/sentack",
   },
 ];
