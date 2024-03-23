@@ -5,9 +5,8 @@ import logo from "./assets/logo.png";
 // Profile Image
 import profile from "./assets/profile.jpg";
 
-
-
 // Tech stack images
+// Web
 import html from "./assets/techstack/html.png";
 import css from "./assets/techstack/css.png";
 import sass from "./assets/techstack/sass.png";
@@ -15,15 +14,28 @@ import js from "./assets/techstack/js.png";
 import react from "./assets/techstack/react.png";
 import tailwind from "./assets/techstack/tailwind.png";
 import bootstrap from "./assets/techstack/bootstrap.png";
-import vscode from "./assets/techstack/vscode.png";
-import github from "./assets/techstack/github.png";
-import git from "./assets/techstack/git.png";
-import npm from "./assets/techstack/npm.png";
-import cplus from "./assets/techstack/c++.png";
-import figma from "./assets/techstack/figma.png";
-import java from "./assets/techstack/java.png";
-import py from "./assets/techstack/py.png";
 import php from "./assets/techstack/php.png";
+import django from "./assets/techstack/django.png";
+import flask from "./assets/techstack/flask.png";
+import node from "./assets/techstack/node.png";
+
+// Mobile
+import flutter from "./assets/techstack/flutter.png";
+import dart from "./assets/techstack/dart.png";
+import py from "./assets/techstack/py.png";
+
+// Databases
+import mysql from "./assets/techstack/mysql.png";
+import mongodb from "./assets/techstack/mongodb.png";
+
+// Tools
+import vscode from "./assets/techstack/vscode.png";
+import git from "./assets/techstack/git.png";
+import figma from "./assets/techstack/figma.png";
+import astudio from "./assets/techstack/astudio.png";
+import netlify from "./assets/techstack/netlify.png";
+import vercel from "./assets/techstack/vercel.png";
+import npm from "./assets/techstack/npm.png";
 
 // Project Images
 import projectImage1 from "./assets/projects/project1.png";
@@ -37,13 +49,12 @@ export const logos = {
   logo: logo,
 };
 
-
 // Enter your Personal Details here
 export const personalDetails = {
   name: "Sena Takele",
   tagline: "But, you can call me Sentack :)",
   img: profile,
-  about1: `Hello! I'm Sena Takele, a passionate and organized software engineering student. Web development, mobile app development, and creative problem-solving are my true passions.`,
+  about1: `I'm a passionate Full-stack Developer specializing in web and mobile applications, dedicated to creating seamless and user-friendly experiences with a balance of front-end and back-end expertise.`,
   about2: `I take great pleasure in crafting innovative solutions and staying updated with the latest skills and technologies in the field. I have a knack for creating websites from the ground up, utilizing my strong analytical and problem-solving skills to adapt to new technologies quickly.`,
   about3: `Beyond my software engineering pursuits, I have over 5 years of experience in graphic design, video production, and photography. From designing logos to creating captivating web designs, motion graphics, and video editing, I excel at producing visually appealing content that effectively communicates messages while keeping up with current trends.`,  
   about4: `Continual learning is a top priority for me, and I take pride in mastering new software and techniques to stay ahead of the game. I'm motivated by pushing boundaries and making valuable contributions to the ever-evolving world of technology.`
@@ -109,22 +120,36 @@ export const eduDetails = [
 
 // Tech Stack and Tools
 export const techStackDetails = [
-  { name: "HTML", image: html, type: "frontend" },
-  { name: "CSS", image: css, type: "frontend" },
-  { name: "JavaScript", image: js, type: "frontend" },
-  { name: "React", image: react, type: "frontend" },
-  { name: "Sass", image: sass, type: "frontend" },
-  { name: "Tailwind CSS", image: tailwind, type: "frontend" },
-  { name: "Bootstrap", image: bootstrap, type: "frontend" },
+  // Web
+  { name: "HTML", image: html, type: "webdev" },
+  { name: "CSS", image: css, type: "webdev" },
+  { name: "Sass", image: sass, type: "webdev" },
+  { name: "Tailwind CSS", image: tailwind, type: "webdev" },
+  { name: "Bootstrap", image: bootstrap, type: "webdev" },
+  { name: "JavaScript", image: js, type: "webdev" },
+  { name: "React", image: react, type: "webdev" },
+  { name: "PHP", image: php, type: "webdev" },
+  { name: "NodeJS", image: node, type: "webdev" },
+  { name: "Django", image: django, type: "webdev" },
+  { name: "Flask", image: flask, type: "webdev" },
+
+  // Mobile
+  { name: "Flutter", image: flutter, type: "mobile" },
+  { name: "Dart", image: dart, type: "mobile" },
+  { name: "Python", image: py, type: "mobile" },
+
+  // Databases
+  { name: "MySql", image: mysql, type: "databases" },
+  { name: "MongoDB", image: mongodb, type: "databases" },
+
+  //Tools
+  { name: "Android Studio", image: astudio, type: "tools" },
   { name: "Visual Studio Code", image: vscode, type: "tools" },
-  { name: "C++", image: cplus, type: "others" },
   { name: "npm", image: npm, type: "tools" },
   { name: "Git", image: git, type: "tools" },
-  { name: "GitHub", image: github, type: "tools" },
   { name: "Figma", image: figma, type: "tools" },
-  { name: "PHP", image: php, type: "backend" },
-  { name: "Python", image: py, type: "backend" },
-  { name: "Java", image: java, type: "others" }
+  { name: "Vercel", image: vercel, type: "tools" },
+  { name: "Netlify", image: netlify, type: "tools" },
 ];
 
 // Project Details 

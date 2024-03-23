@@ -10,9 +10,6 @@ function About() {
           About Me
         </h1>
         <p className="text-content py-3 lg:max-w-3xl">{personalDetails.about1}</p>
-        <p className="text-content py-3 lg:max-w-3xl">{personalDetails.about2}</p>
-        <p className="text-content py-3 lg:max-w-3xl">{personalDetails.about3}</p>
-        <p className="text-content py-3 lg:max-w-3xl">{personalDetails.about4}</p>
       </section>
       <section>
         <h1 className="text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold">
@@ -35,13 +32,14 @@ function About() {
           Education
         </h1>
         {React.Children.toArray(
-          eduDetails.map(({ Position, Company, Location, Type, Duration }) => (
+          eduDetails.map(({ Position, Company, Location, Type, Duration }, index) => (
             <Work
               position={Position}
               company={Company}
               location={Location}
               type={Type}
               duration={Duration}
+              time={1000 + (index + 1) * 100}
             />
           ))
         )}

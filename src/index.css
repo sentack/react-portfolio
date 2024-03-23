@@ -6,21 +6,27 @@
 .max-width {
   @apply lg:mx-auto lg:px-24 xl:px-48 px-5;
 }
+
 .bg-gradient {
   @apply bg-gradient-to-r from-sky-500 via-purple-500 to-pink-600;
 }
+
 .text-gradient {
   @apply bg-clip-text bg-gradient text-transparent;
 }
+
 .section {
   @apply pt-28 xl:pt-28 2xl:pt-44;
 }
+
 .text-content {
   @apply dark:text-light-content text-dark-content;
 }
+
 body {
   overflow-x: hidden;
 }
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
   display: none;
@@ -74,53 +80,64 @@ body::-webkit-scrollbar {
 
 .skill-card{
   display: flex;
-  padding: 10%;
-  height: 13vh;
-  width: 13vh;
-  border-width: 1px;
-  border-radius: 5%;
-  border-color: rgba(119, 119, 212, 0.048);
-  box-shadow: -1px 1px 1px rgba(119, 119, 212, 0.137);
   align-items: center;
   justify-content: center;
-  transition: .5s;
   margin-right: 500px;
+  height: 13vh;
+  width: 13vh;
 }
 
 .skill-card img{
   height: 100%;
   width: 100%;
   object-fit: contain;
-}
-
-.skill-card:hover{
-  scale: 1.05;
-  box-shadow: -5px 5px 5px rgba(119, 119, 212, 0.137);
-}
-
-.skill-buttons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.skill-buttons button{
-  padding: 5px;
+  padding: 10%;
+  border-width: 1px;
   border-radius: 5%;
   border-color: rgba(119, 119, 212, 0.048);
   box-shadow: -1px 1px 1px rgba(119, 119, 212, 0.137);
-  border-width: 1px;
-  transition: .5s;
+  transition: transform 0.3s ease;
+  filter: grayscale(.75);
 }
 
-.skill-buttons .active{
-  background-color: white;
-  color: black;
+.skill:hover img{
+  transform: translateY(-10px);
   box-shadow: -5px 5px 5px rgba(119, 119, 212, 0.137);
+  filter: grayscale(0);
 }
 
-.skill-buttons button:hover{
-  box-shadow: -5px 5px 5px rgba(119, 119, 212, 0.137);
+.skill-buttons{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #302f2f;
+  box-sizing: border-box;
+  padding: 0.25rem;
+  width: 300px;
+  font-size: 14px;  
+  transition: .5s all ease-in-out;
+  scale: 1.25;
+}
+
+.skill-buttons button{  
+  flex: 1 1 auto;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  border: none;
+  padding: .5rem 0;
+  color: #fff;
+  transition: all .15s ease-in-out;
+}
+
+.skill-buttons .active{  
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
 }
 
 
@@ -131,5 +148,20 @@ body::-webkit-scrollbar {
 .work-card:hover{
   scale: 1.02;
   box-shadow: 0 1px .5px 0 whitesmoke;  
+}
+
+.skill-name{  
+  width: 13vh;
+  display: flex;
+  color: rgb(122, 122, 122);
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  font-weight: 600;
+  transition: .3s ease-in-out;
+}
+
+.skill:hover .skill-name{  
+  color: #fff;
 }
 
