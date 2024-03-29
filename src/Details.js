@@ -124,7 +124,7 @@ export const techStackDetails = [
   { name: "HTML", image: html, type: "webdev" },
   { name: "CSS", image: css, type: "webdev" },
   { name: "Sass", image: sass, type: "webdev" },
-  { name: "Tailwind CSS", image: tailwind, type: "webdev" },
+  { name: "Tailwind", image: tailwind, type: "webdev" },
   { name: "Bootstrap", image: bootstrap, type: "webdev" },
   { name: "JavaScript", image: js, type: "webdev" },
   { name: "React", image: react, type: "webdev" },

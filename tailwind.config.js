@@ -13,7 +13,8 @@ module.exports = {
         "dark-mode": "#191919",
         "dark-card": "#363636",
         "typebg": "#222831",
-        "type-text": "#FFFFFF"
+        "type-text": "#FFFFFF",
+        "white": "#F8F8F8"
       },
     },
   },

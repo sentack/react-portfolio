@@ -44,12 +44,8 @@ body::-webkit-scrollbar {
   transition: .5s;
 }
 
-.page-link:hover{
-  color: white;
-}
-
 .page-link .active{
-  color: white;
+  color: #e81cff;
 }
 
 .profile-img{
@@ -98,15 +94,15 @@ body::-webkit-scrollbar {
   padding: 10%;
   border-width: 1px;
   border-radius: 5%;
-  border-color: rgba(119, 119, 212, 0.048);
-  box-shadow: -1px 1px 1px rgba(119, 119, 212, 0.137);
+  border-color: rgba(119, 119, 212, 0.089);
+  box-shadow: -3px 4px 4px rgba(119, 119, 212, 0.1);
   transition: transform 0.3s ease;
   filter: grayscale(.75);
 }
 
 .skill:hover img{
   transform: translateY(-10px);
-  box-shadow: -5px 5px 5px rgba(119, 119, 212, 0.137);
+  box-shadow: -8px 8px 8px rgba(119, 119, 212, 0.137);
   filter: grayscale(0);
 }
 
@@ -115,7 +111,6 @@ body::-webkit-scrollbar {
   display: flex;
   flex-wrap: wrap;
   border-radius: 0.5rem;
-  background-color: #302f2f;
   box-sizing: border-box;
   padding: 0.25rem;
   width: 300px;
@@ -134,16 +129,13 @@ body::-webkit-scrollbar {
   border-radius: 0.25rem;
   border: none;
   padding: .5rem 0;
-  color: #fff;
   transition: all .15s ease-in-out;
 }
 
-.skill-buttons .active{  
-  background-color: #fff;
-  color: #000;
-  font-weight: 600;
-}
 
+.skill-name{  
+  width: 13vh;
+}
 
 .work-card{
   transition: .5s;
@@ -154,20 +146,6 @@ body::-webkit-scrollbar {
   box-shadow: 0 1px .5px 0 whitesmoke;  
 }
 
-.skill-name{  
-  width: 13vh;
-  display: flex;
-  color: rgb(122, 122, 122);
-  justify-content: center;
-  align-items: center;
-  font-style: italic;
-  font-weight: 600;
-  transition: .3s ease-in-out;
-}
-
-.skill:hover .skill-name{  
-  color: #fff;
-}
 
 
 /* Contact Form */
@@ -179,20 +157,16 @@ body::-webkit-scrollbar {
 
 .form-container {
   width: 400px;
-  background: linear-gradient(#212121, #212121) padding-box,
-              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
-  border: 2px solid transparent;
   padding: 32px 24px;
   font-size: 14px;
   font-family: inherit;
-  color: white;
   display: flex;
   flex-direction: column;
   gap: 20px;
   box-sizing: border-box;
   border-radius: 16px;
   margin: 0 auto;
-}
+  }
 
 .form-container button:active {
   scale: 0.95;
@@ -222,7 +196,6 @@ body::-webkit-scrollbar {
   width: 100%;
   padding: 12px 16px;
   border-radius: 8px;
-  color: #fff;
   font-family: inherit;
   background-color: transparent;
   border: 1px solid #414141;
@@ -233,7 +206,6 @@ body::-webkit-scrollbar {
   padding: 12px 16px;
   border-radius: 8px;
   resize: none;
-  color: #fff;
   height: 96px;
   border: 1px solid #414141;
   background-color: transparent;
@@ -260,11 +232,8 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-self: flex-start;
   font-family: inherit;
-  color: #717171;
   font-weight: 600;
   width: 40%;
-  background: #313131;
-  border: 1px solid #414141;
   padding: 12px 16px;
   font-size: inherit;
   gap: 8px;
@@ -275,8 +244,7 @@ body::-webkit-scrollbar {
 }
 
 .form-container .form-submit-btn:hover {
-  background-color: #fff;
-  border-color: #fff;
+  background-color: #e81cff;
 }
 
 .form .buttons{
@@ -299,5 +267,5 @@ body::-webkit-scrollbar {
 }
 
 .icon:hover{
-  color: #fff;
+  color: #e81cff;
 }
