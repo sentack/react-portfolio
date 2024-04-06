@@ -56,8 +56,8 @@ export const personalDetails = {
   img: profile,
   about1: `I'm a passionate Full-stack Developer specializing in web and mobile applications, dedicated to creating seamless and user-friendly experiences with a balance of front-end and back-end expertise.`,
   about2: `I take great pleasure in crafting innovative solutions and staying updated with the latest skills and technologies in the field. I have a knack for creating websites from the ground up, utilizing my strong analytical and problem-solving skills to adapt to new technologies quickly.`,
-  about3: `Beyond my software engineering pursuits, I have over 5 years of experience in graphic design, video production, and photography. From designing logos to creating captivating web designs, motion graphics, and video editing, I excel at producing visually appealing content that effectively communicates messages while keeping up with current trends.`,  
-  about4: `Continual learning is a top priority for me, and I take pride in mastering new software and techniques to stay ahead of the game. I'm motivated by pushing boundaries and making valuable contributions to the ever-evolving world of technology.`
+  about3: `Beyond my software engineering pursuits, I have over 5 years of experience in graphic design, video production, and photography. From designing logos to creating captivating web designs, motion graphics, and video editing, I excel at producing visually appealing content that effectively communicates messages while keeping up with current trends.`,
+  about4: `Continual learning is a top priority for me, and I take pride in mastering new software and techniques to stay ahead of the game. I'm motivated by pushing boundaries and making valuable contributions to the ever-evolving world of technology.`,
 };
 
 // Social Media
@@ -143,8 +143,8 @@ export const techStackDetails = [
   { name: "MongoDB", image: mongodb, type: "databases" },
 
   //Tools
-  { name: "Android Studio", image: astudio, type: "tools" },
-  { name: "Visual Studio Code", image: vscode, type: "tools" },
+  { name: "A. Studio", image: astudio, type: "tools" },
+  { name: "VSCode", image: vscode, type: "tools" },
   { name: "npm", image: npm, type: "tools" },
   { name: "Git", image: git, type: "tools" },
   { name: "Figma", image: figma, type: "tools" },
@@ -152,7 +152,7 @@ export const techStackDetails = [
   { name: "Netlify", image: netlify, type: "tools" },
 ];
 
-// Project Details 
+// Project Details
 export const projectDetails = [
   {
     title: "Berhane Kristos Church",

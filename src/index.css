@@ -32,39 +32,39 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.homepage{
+.homepage {
   margin-top: -100px;
 }
 
-.logo_img{
+.logo_img {
   border-radius: 50%;
 }
 
-.page-link{
-  transition: .5s;
+.page-link {
+  transition: 0.5s;
 }
 
-.page-link .active{
+.page-link .active {
   color: #e81cff;
 }
 
-.profile-img{
+.profile-img {
   border-radius: 50%;
   border-width: 5px;
   border-color: rgba(137, 43, 226, 0.4);
-  filter: grayscale(.55);
-  transition: .5s;
+  filter: grayscale(0.55);
+  transition: 0.5s;
 }
 
-.profile-img:hover{
+.profile-img:hover {
   filter: grayscale(0.25);
 }
 
-.project-card{
-  transition: .5s;
+.project-card {
+  transition: 0.5s;
 }
 
-.project-card:hover{
+.project-card:hover {
   scale: 1.02;
 }
 
@@ -78,7 +78,7 @@ body::-webkit-scrollbar {
   border-color: #f5c6cb;
 }
 
-.skill-card{
+.skill-card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,7 +87,7 @@ body::-webkit-scrollbar {
   width: 13vh;
 }
 
-.skill-card img{
+.skill-card img {
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -97,16 +97,16 @@ body::-webkit-scrollbar {
   border-color: rgba(119, 119, 212, 0.089);
   box-shadow: -3px 4px 4px rgba(119, 119, 212, 0.1);
   transition: transform 0.3s ease;
-  filter: grayscale(.75);
+  filter: grayscale(0.75);
 }
 
-.skill:hover img{
+.skill:hover img {
   transform: translateY(-10px);
   box-shadow: -8px 8px 8px rgba(119, 119, 212, 0.137);
   filter: grayscale(0);
 }
 
-.skill-buttons{
+.skill-buttons {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -114,12 +114,12 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
   padding: 0.25rem;
   width: 300px;
-  font-size: 14px;  
-  transition: .5s all ease-in-out;
+  font-size: 14px;
+  transition: 0.5s all ease-in-out;
   scale: 1.25;
 }
 
-.skill-buttons button{  
+.skill-buttons button {
   flex: 1 1 auto;
   text-align: center;
   display: flex;
@@ -128,31 +128,32 @@ body::-webkit-scrollbar {
   justify-content: center;
   border-radius: 0.25rem;
   border: none;
-  padding: .5rem 0;
-  transition: all .15s ease-in-out;
+  padding: 0.5rem 0;
+  transition: all 0.15s ease-in-out;
 }
 
-
-.skill-name{  
+.skill-name {
   width: 13vh;
 }
 
-.work-card{
-  transition: .5s;
+.skill:hover .skill-name {
+  color: #fff;
 }
 
-.work-card:hover{
+.work-card {
+  transition: 0.5s;
+}
+
+.work-card:hover {
   scale: 1.02;
-  box-shadow: 0 1px .5px 0 whitesmoke;  
+  box-shadow: 0 1px 0.5px 0 whitesmoke;
 }
-
-
 
 /* Contact Form */
 
-.contact-section{
+.contact-section {
   margin-top: -50px;
-  scale: .9;
+  scale: 0.9;
 }
 
 .form-container {
@@ -166,7 +167,7 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
   border-radius: 16px;
   margin: 0 auto;
-  }
+}
 
 .form-container button:active {
   scale: 0.95;
@@ -247,10 +248,10 @@ body::-webkit-scrollbar {
   background-color: #e81cff;
 }
 
-.form .buttons{
+.form .buttons {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 }
 
 .buttons .contact-icons {
@@ -263,9 +264,9 @@ body::-webkit-scrollbar {
   width: 24px; /* Adjust the width as needed */
   height: 24px; /* Adjust the height as needed */
   margin-left: 10px;
-  color: #717171;;
+  color: #717171;
 }
 
-.icon:hover{
+.icon:hover {
   color: #e81cff;
 }
