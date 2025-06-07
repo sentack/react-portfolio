@@ -1,36 +1,245 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Project from "../Components/Project";
 import { projectDetails } from "../Details";
 
 function Projects() {
+  const [filter, setFilter] = useState("all");
+
+  const categories = [
+    { id: "all", label: "All Projects" },
+    { id: "web", label: "Web Apps" },
+    { id: "mobile", label: "Mobile" },
+    { id: "design", label: "Design" },
+  ];
+
+  const filteredProjects =
+    filter === "all"
+      ? projectDetails
+      : projectDetails.filter((project) =>
+          project.techstack
+            .toLowerCase()
+            .includes(filter === "web" ? "html" : filter)
+        );
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
-    <main className="container mx-auto max-width pt-2 mb-20">
-      
-      <section>
-        <h1 className="text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold">
-          Projects
+    <motion.main
+      className="container mx-auto max-width pt-24 pb-20 px-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* Header */}
+      <motion.section
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          My{" "}
+          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            Projects
+          </span>
         </h1>
-        <div class="alert " role="alert">
-        This portfolio showcases a selection of my work, excluding projects that contain private client information, which prevents me from sharing the corresponding GitHub repositories.
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-x-10">
-          {React.Children.toArray(
-            projectDetails.map(
-              ({ title, image, description, techstack, previewLink, githubLink }) => (
-                <Project
-                  title={title}
-                  image={image}
-                  description={description}
-                  techstack={techstack}
-                  previewLink={previewLink}
-                  githubLink={githubLink}
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          A showcase of my work, featuring web applications, mobile apps, and
+          design projects
+        </p>
+
+        {/* Disclaimer */}
+        <motion.div
+          className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 max-w-4xl mx-auto"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <div className="flex items-start space-x-3">
+            <div className="flex-shrink-0">
+              <svg
+                className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                  clipRule="evenodd"
                 />
-              )
-            )
-          )}
+              </svg>
+            </div>
+            <div className="text-left">
+              <h3 className="text-sm font-semibold text-amber-800 dark:text-amber-200">
+                Portfolio Disclaimer
+              </h3>
+              <p className="text-sm text-amber-700 dark:text-amber-300 mt-1">
+                This portfolio showcases a selection of my work, excluding
+                projects that contain private client information, which prevents
+                me from sharing the corresponding GitHub repositories.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      {/* Filter Buttons */}
+      <motion.section
+        className="mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="flex flex-wrap justify-center gap-4">
+          {categories.map((category) => (
+            <motion.button
+              key={category.id}
+              onClick={() => setFilter(category.id)}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                filter === category.id
+                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
+                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
+              }`}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {category.label}
+            </motion.button>
+          ))}
         </div>
-      </section>
-    </main>
+      </motion.section>
+
+      {/* Projects Grid */}
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={filter}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={`${project.title}-${filter}`}
+                variants={itemVariants}
+                layout
+              >
+                <Project
+                  title={project.title}
+                  image={project.image}
+                  description={project.description}
+                  techstack={project.techstack}
+                  previewLink={project.previewLink}
+                  githubLink={project.githubLink}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </motion.section>
+
+      {/* Stats Section */}
+      <motion.section
+        className="mt-20"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+            Project Statistics
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { number: "5+", label: "Projects Completed", icon: "🚀" },
+              { number: "10+", label: "Technologies Used", icon: "⚡" },
+              { number: "100%", label: "Client Satisfaction", icon: "⭐" },
+              { number: "3+", label: "Years Experience", icon: "📅" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                className="text-center bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-3xl mb-2">{stat.icon}</div>
+                <motion.div
+                  className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  {stat.number}
+                </motion.div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Call to Action */}
+      <motion.section
+        className="mt-16 text-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            Have a Project in Mind?
+          </h3>
+          <p className="text-lg mb-6 opacity-90">
+            Let's discuss how we can bring your ideas to life with cutting-edge
+            technology
+          </p>
+          <motion.button
+            className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            onTap={() => (window.location.href = "/contact")}
+          >
+            Start a Conversation
+          </motion.button>
+        </div>
+      </motion.section>
+    </motion.main>
   );
 }
 
