@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { personalDetails } from "../Details";
+import { Link } from "react-router-dom";
 
 function Home() {
   const { name, tagline, img } = personalDetails;
@@ -168,7 +169,7 @@ function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <motion.span
-              className="inline-block px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium mb-4"
+              className="inline-block px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-full text-sm font-medium mb-4"
               whileHover={{ scale: 1.05 }}
             >
               👋 Welcome to my portfolio
@@ -181,10 +182,10 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span className="text-gray-900 dark:text-white">Hi, I'm</span>
+            <span className="text-white">Hi, I'm</span>
             <br />
             <motion.span
-              className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
@@ -199,7 +200,7 @@ function Home() {
           </motion.h1>
 
           <motion.h2
-            className="text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 font-light"
+            className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -208,7 +209,7 @@ function Home() {
           </motion.h2>
 
           <motion.p
-            className="text-lg text-gray-600 dark:text-gray-400 max-w-lg leading-relaxed"
+            className="text-lg text-gray-300 max-w-lg leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -224,31 +225,33 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            <motion.button
-              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{
-                scale: 1.05,
-                y: -2,
-                boxShadow:
-                  "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-              }}
-              onTap={() => (window.location.href = "/projects")}
-              whileTap={{ scale: 0.95 }}
-            >
-              View My Work
-            </motion.button>
+            <Link to="/projects">
+              <motion.button
+                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{
+                  scale: 1.05,
+                  y: -2,
+                  boxShadow:
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View My Work
+              </motion.button>
+            </Link>
 
-            <motion.button
-              className="px-8 py-4 border-2 border-purple-600 text-purple-600 dark:text-purple-400 font-semibold rounded-xl hover:bg-purple-600 hover:text-white dark:hover:bg-purple-600 dark:hover:text-white transition-all duration-300"
-              whileHover={{
-                scale: 1.05,
-                y: -2,
-              }}
-              onTap={() => (window.location.href = "/contact")}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get In Touch
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                className="px-8 py-4 border-2 border-purple-400 text-purple-300 font-semibold rounded-xl hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all duration-300"
+                whileHover={{
+                  scale: 1.05,
+                  y: -2,
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get In Touch
+              </motion.button>
+            </Link>
           </motion.div>
 
           {/* Social Stats */}
@@ -260,7 +263,7 @@ function Home() {
           >
             {[
               { number: "5+", label: "Projects" },
-              { number: "3+", label: "Years Experience" },
+              { number: "5+", label: "Years Experience" },
               { number: "100%", label: "Client Satisfaction" },
             ].map((stat, index) => (
               <motion.div
@@ -269,16 +272,14 @@ function Home() {
                 whileHover={{ scale: 1.1 }}
               >
                 <motion.div
-                  className="text-2xl font-bold text-purple-600 dark:text-purple-400"
+                  className="text-2xl font-bold text-purple-400"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.6 + index * 0.2 }}
                 >
                   {stat.number}
                 </motion.div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {stat.label}
-                </div>
+                <div className="text-sm text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -320,7 +321,7 @@ function Home() {
 
             {/* Profile image */}
             <motion.div
-              className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl"
+              className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >

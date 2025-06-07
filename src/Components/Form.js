@@ -40,7 +40,7 @@ function Form() {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-100 dark:border-gray-700">
+      <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl p-8 border border-white/20">
         <motion.form
           onSubmit={handleSubmit}
           className="space-y-6"
@@ -57,7 +57,7 @@ function Form() {
           >
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              className="block text-sm font-semibold text-white"
             >
               Email Address
             </label>
@@ -68,7 +68,7 @@ function Form() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               placeholder="your.email@example.com"
               whileFocus={{ scale: 1.02 }}
             />
@@ -83,7 +83,7 @@ function Form() {
           >
             <label
               htmlFor="subject"
-              className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              className="block text-sm font-semibold text-white"
             >
               Subject
             </label>
@@ -94,7 +94,7 @@ function Form() {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               placeholder="What's this about?"
               whileFocus={{ scale: 1.02 }}
             />
@@ -109,7 +109,7 @@ function Form() {
           >
             <label
               htmlFor="message"
-              className="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              className="block text-sm font-semibold text-white"
             >
               Message
             </label>
@@ -120,7 +120,7 @@ function Form() {
               onChange={handleChange}
               rows="6"
               required
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
               placeholder="Tell me about your project or just say hello!"
               whileFocus={{ scale: 1.02 }}
             />
@@ -136,7 +136,7 @@ function Form() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-blue-700 focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-blue-700 focus:ring-4 focus:ring-purple-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -162,7 +162,7 @@ function Form() {
             <div className="flex items-center space-x-4">
               <motion.a
                 href={`tel:${phone}`}
-                className="p-3 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-xl hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors"
+                className="p-3 bg-green-500/20 text-green-300 rounded-xl hover:bg-green-500/30 transition-colors border border-green-400/30"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -177,7 +177,7 @@ function Form() {
 
               <motion.a
                 href={`mailto:${email}`}
-                className="p-3 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
+                className="p-3 bg-blue-500/20 text-blue-300 rounded-xl hover:bg-blue-500/30 transition-colors border border-blue-400/30"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -196,19 +196,19 @@ function Form() {
 
         {/* Contact Information */}
         <motion.div
-          className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700"
+          className="mt-8 pt-8 border-t border-white/20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.5 }}
         >
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold text-white mb-4">
             Get in Touch
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
+              <div className="p-2 bg-purple-500/20 rounded-lg border border-purple-400/30">
                 <svg
-                  className="w-4 h-4 text-purple-600 dark:text-purple-400"
+                  className="w-4 h-4 text-purple-300"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -217,19 +217,15 @@ function Form() {
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Email
-                </p>
-                <p className="text-sm font-medium text-gray-900 dark:text-white">
-                  {email}
-                </p>
+                <p className="text-sm text-gray-300">Email</p>
+                <p className="text-sm font-medium text-white">{email}</p>
               </div>
             </div>
 
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
+              <div className="p-2 bg-green-500/20 rounded-lg border border-green-400/30">
                 <svg
-                  className="w-4 h-4 text-green-600 dark:text-green-400"
+                  className="w-4 h-4 text-green-300"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -237,12 +233,8 @@ function Form() {
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Phone
-                </p>
-                <p className="text-sm font-medium text-gray-900 dark:text-white">
-                  {phone}
-                </p>
+                <p className="text-sm text-gray-300">Phone</p>
+                <p className="text-sm font-medium text-white">{phone}</p>
               </div>
             </div>
           </div>

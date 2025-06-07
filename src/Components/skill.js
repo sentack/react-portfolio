@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 
 function Skill({ name, image, type }) {
@@ -79,7 +80,7 @@ function Skill({ name, image, type }) {
       </motion.div>
 
       <motion.h6
-        className="text-sm font-semibold text-gray-700 dark:text-gray-300 text-center group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300"
+        className="text-sm font-semibold text-white text-center group-hover:text-purple-300 transition-colors duration-300"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -89,7 +90,7 @@ function Skill({ name, image, type }) {
 
       {/* Skill level indicator */}
       <motion.div
-        className="w-16 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+        className="w-16 h-1 bg-white/20 rounded-full overflow-hidden"
         initial={{ width: 0 }}
         whileInView={{ width: 64 }}
         transition={{ delay: 0.3, duration: 0.8 }}

@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 
 function Work({ position, company, location, type, duration }) {
@@ -6,13 +7,13 @@ function Work({ position, company, location, type, duration }) {
     switch (type.toLowerCase()) {
       case "fulltime":
       case "full time":
-        return "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
+        return "bg-green-500/20 text-green-300 border border-green-500/30";
       case "part-time":
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400";
+        return "bg-blue-500/20 text-blue-300 border border-blue-500/30";
       case "internship":
-        return "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400";
+        return "bg-purple-500/20 text-purple-300 border border-purple-500/30";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400";
+        return "bg-gray-500/20 text-gray-300 border border-gray-500/30";
     }
   };
 
@@ -33,17 +34,17 @@ function Work({ position, company, location, type, duration }) {
         whileHover={{ scale: 1.5 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="absolute inset-1 bg-white dark:bg-gray-900 rounded-full" />
+        <div className="absolute inset-1 bg-white rounded-full" />
       </motion.div>
 
       <motion.div
-        className="ml-12 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-purple-300 dark:group-hover:border-purple-600"
+        className="ml-12 p-6 bg-white/10 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 group-hover:border-purple-400/50"
         whileHover={{ y: -5, scale: 1.02 }}
         transition={{ duration: 0.3 }}
       >
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
           <motion.h1
-            className="text-lg md:text-xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+            className="text-lg md:text-xl font-bold text-white group-hover:text-purple-300 transition-colors"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -65,7 +66,7 @@ function Work({ position, company, location, type, duration }) {
         </div>
 
         <motion.div
-          className="flex flex-col md:flex-row md:items-center md:justify-between text-sm text-gray-600 dark:text-gray-300"
+          className="flex flex-col md:flex-row md:items-center md:justify-between text-sm text-gray-300"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -73,7 +74,7 @@ function Work({ position, company, location, type, duration }) {
           <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6">
             <div className="flex items-center space-x-2">
               <motion.svg
-                className="w-4 h-4 text-purple-500"
+                className="w-4 h-4 text-purple-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 whileHover={{ rotate: 360 }}
@@ -85,12 +86,12 @@ function Work({ position, company, location, type, duration }) {
                   clipRule="evenodd"
                 />
               </motion.svg>
-              <span className="font-medium">{company}</span>
+              <span className="font-medium text-white">{company}</span>
             </div>
 
             <div className="flex items-center space-x-2">
               <motion.svg
-                className="w-4 h-4 text-blue-500"
+                className="w-4 h-4 text-blue-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 whileHover={{ scale: 1.2 }}
@@ -102,7 +103,7 @@ function Work({ position, company, location, type, duration }) {
                   clipRule="evenodd"
                 />
               </motion.svg>
-              <span>{location}</span>
+              <span className="text-gray-300">{location}</span>
             </div>
           </div>
 
@@ -113,7 +114,7 @@ function Work({ position, company, location, type, duration }) {
             transition={{ delay: 0.5 }}
           >
             <svg
-              className="w-4 h-4 text-green-500"
+              className="w-4 h-4 text-green-400"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -123,7 +124,7 @@ function Work({ position, company, location, type, duration }) {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="font-medium">{duration}</span>
+            <span className="font-medium text-white">{duration}</span>
           </motion.div>
         </motion.div>
 

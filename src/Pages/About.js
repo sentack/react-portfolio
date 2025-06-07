@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 import Work from "../Components/Work";
 import { personalDetails, workDetails, eduDetails } from "../Details";
 
@@ -45,27 +46,27 @@ function About() {
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               About{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                 Me
               </span>
             </motion.h1>
 
             <motion.div
-              className="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed"
+              className="space-y-6 text-gray-300 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <p className="text-lg">{personalDetails.about1}</p>
-              <p>{personalDetails.about2}</p>
-              <p>{personalDetails.about3}</p>
-              <p>{personalDetails.about4}</p>
+              <p className="text-lg text-gray-200">{personalDetails.about1}</p>
+              <p className="text-gray-300">{personalDetails.about2}</p>
+              <p className="text-gray-300">{personalDetails.about3}</p>
+              <p className="text-gray-300">{personalDetails.about4}</p>
             </motion.div>
 
             {/* Skills highlight */}
@@ -87,19 +88,15 @@ function About() {
               ].map((skill, index) => (
                 <motion.div
                   key={index}
-                  className="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  className="p-4 bg-white/10 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
                   whileHover={{ y: -5, scale: 1.02 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
                 >
                   <div className="text-2xl mb-2">{skill.icon}</div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">
-                    {skill.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {skill.desc}
-                  </p>
+                  <h3 className="font-semibold text-white">{skill.title}</h3>
+                  <p className="text-sm text-gray-300">{skill.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -129,7 +126,7 @@ function About() {
               <motion.img
                 src={personalDetails.img}
                 alt="Profile"
-                className="relative w-80 h-80 object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800"
+                className="relative w-80 h-80 object-cover rounded-2xl shadow-2xl border-4 border-white"
                 whileHover={{ scale: 1.05, rotate: -2 }}
                 transition={{ duration: 0.3 }}
               />
@@ -174,9 +171,9 @@ function About() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
             Work{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
@@ -210,8 +207,8 @@ function About() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Education
             </span>
           </h2>
@@ -254,13 +251,15 @@ function About() {
             Ready to bring your ideas to life? Let's create something amazing
             together.
           </p>
-          <motion.button
-            className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get In Touch
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get In Touch
+            </motion.button>
+          </Link>
         </div>
       </motion.section>
     </motion.main>

@@ -1,10 +1,11 @@
 "use client";
+
 import { motion } from "framer-motion";
 
 function Footer() {
   return (
     <motion.footer
-      className="relative mt-20 py-8 bg-gradient-to-r from-purple-900 via-blue-900 to-indigo-900 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900"
+      className="relative mt-20 py-2 bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -30,7 +31,7 @@ function Footer() {
             </motion.span>{" "}
             by{" "}
             <motion.a
-              className="font-semibold text-purple-300 hover:text-purple-200 transition-colors"
+              className="font-semibold text-purple-100 hover:text-white transition-colors"
               href="https://sentack-portfolio.vercel.app/"
               target="_blank"
               rel="noreferrer noopener"
@@ -41,16 +42,16 @@ function Footer() {
           </p>
 
           <motion.div
-            className="mt-4 flex justify-center space-x-6"
+            className="mt-2 flex justify-center space-x-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <span className="text-purple-300">Love</span>
+            <span className="text-purple-100">Love</span>
             <span className="text-white/60">•</span>
-            <span className="text-blue-300">Coffee</span>
+            <span className="text-blue-100">Coffee</span>
             <span className="text-white/60">•</span>
-            <span className="text-indigo-300">Code</span>
+            <span className="text-indigo-100">Code</span>
           </motion.div>
         </motion.div>
       </div>

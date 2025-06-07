@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { techStackDetails } from "../Details";
 import Skill from "../Components/skill";
 
@@ -57,13 +58,13 @@ function Skills() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
           My{" "}
-          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             Skills
           </span>
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
           A comprehensive overview of the technologies and tools I use to bring
           ideas to life
         </p>
@@ -84,7 +85,7 @@ function Skills() {
               className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
                 selectedCategory === category.id
                   ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
+                  : "bg-white/10 backdrop-blur-sm text-gray-300 hover:bg-white/20 border border-white/20"
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -136,8 +137,8 @@ function Skills() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+        <div className="bg-purple-500/20 backdrop-blur-sm rounded-2xl p-8 border border-purple-400/30">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
             Expertise Overview
           </h2>
 
@@ -166,7 +167,7 @@ function Skills() {
             ].map((category, index) => (
               <motion.div
                 key={category.category}
-                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -178,14 +179,14 @@ function Skills() {
                 >
                   <div className="w-6 h-6 bg-white rounded opacity-80" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   {category.category}
                 </h3>
                 <div className="space-y-2">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill}
-                      className="text-sm text-gray-600 dark:text-gray-400"
+                      className="text-sm text-gray-300"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
@@ -216,14 +217,15 @@ function Skills() {
           <p className="text-lg mb-6 opacity-90">
             Let's combine these skills to create your next project
           </p>
-          <motion.button
-            className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onTap={() => (window.location.href = "/contact")}
-          >
-            Start a Project
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start a Project
+            </motion.button>
+          </Link>
         </div>
       </motion.section>
     </motion.main>

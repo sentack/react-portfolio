@@ -54,10 +54,10 @@ export const personalDetails = {
   name: "Sena Takele",
   tagline: "But, you can call me Sentack :)",
   img: profile,
-  about1: `I'm a passionate Full-stack Developer specializing in web and mobile applications, dedicated to creating seamless and user-friendly experiences with a balance of front-end and back-end expertise.`,
-  about2: `I take great pleasure in crafting innovative solutions and staying updated with the latest skills and technologies in the field. I have a knack for creating websites from the ground up, utilizing my strong analytical and problem-solving skills to adapt to new technologies quickly.`,
-  about3: `Beyond my software engineering pursuits, I have over 5 years of experience in graphic design, video production, and photography. From designing logos to creating captivating web designs, motion graphics, and video editing, I excel at producing visually appealing content that effectively communicates messages while keeping up with current trends.`,
-  about4: `Continual learning is a top priority for me, and I take pride in mastering new software and techniques to stay ahead of the game. I'm motivated by pushing boundaries and making valuable contributions to the ever-evolving world of technology.`,
+  about1: `I'm a Full-stack Developer focused on building smooth, user-friendly web and mobile apps, with solid experience in both front-end and back-end development.`,
+  about2: `I enjoy solving problems and creating smart, practical solutions. I’m quick to learn new technologies and skilled at building websites from the ground up.`,
+  about3: `Alongside software development, I have over 5 years of experience in graphic design, video production, and photography—specializing in logos, web design, motion graphics, and video editing.`,
+  about4: `I'm committed to continuous learning and always exploring new tools and techniques to stay ahead in tech and design.`,
 };
 
 // Social Media
@@ -159,7 +159,7 @@ export const projectDetails = [
     image: projectImage1,
     description: `This is a website I made for Burayu Berhane Kristos Church. It showcases the church's information, events, and services, utilizing modern design and interactive features.`,
     techstack: "HTML/CSS, JavaScript",
-    previewLink: "",
+    previewLink: "https://burayuberhanekristoschurch.com/",
     githubLink: "https://github.com/sentack",
   },
   {

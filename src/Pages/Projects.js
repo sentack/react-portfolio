@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import Project from "../Components/Project";
 import { projectDetails } from "../Details";
 
@@ -58,20 +59,20 @@ function Projects() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
           My{" "}
-          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             Projects
           </span>
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
           A showcase of my work, featuring web applications, mobile apps, and
           design projects
         </p>
 
         {/* Disclaimer */}
         <motion.div
-          className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 max-w-4xl mx-auto"
+          className="bg-transparent backdrop-blur-sm border border-amber-400/30 rounded-xl p-4 max-w-4xl mx-auto"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -79,7 +80,7 @@ function Projects() {
           <div className="flex items-start space-x-3">
             <div className="flex-shrink-0">
               <svg
-                className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5"
+                className="w-5 h-5 text-amber-300 mt-0.5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -91,10 +92,10 @@ function Projects() {
               </svg>
             </div>
             <div className="text-left">
-              <h3 className="text-sm font-semibold text-amber-800 dark:text-amber-200">
+              <h3 className="text-sm font-semibold text-amber-200">
                 Portfolio Disclaimer
               </h3>
-              <p className="text-sm text-amber-700 dark:text-amber-300 mt-1">
+              <p className="text-sm text-amber-100 mt-1">
                 This portfolio showcases a selection of my work, excluding
                 projects that contain private client information, which prevents
                 me from sharing the corresponding GitHub repositories.
@@ -119,7 +120,7 @@ function Projects() {
               className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                 filter === category.id
                   ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
+                  : "bg-white/10 backdrop-blur-sm text-gray-300 hover:bg-white/20 border border-white/20"
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -173,21 +174,21 @@ function Projects() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+        <div className="bg-purple-500/20 backdrop-blur-sm rounded-2xl p-8 border border-purple-400/30">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
             Project Statistics
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { number: "5+", label: "Projects Completed", icon: "🚀" },
-              { number: "10+", label: "Technologies Used", icon: "⚡" },
+              { number: "15+", label: "Technologies Used", icon: "⚡" },
               { number: "100%", label: "Client Satisfaction", icon: "⭐" },
-              { number: "3+", label: "Years Experience", icon: "📅" },
+              { number: "5+", label: "Years Experience", icon: "📅" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -196,7 +197,7 @@ function Projects() {
               >
                 <div className="text-3xl mb-2">{stat.icon}</div>
                 <motion.div
-                  className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2"
+                  className="text-3xl font-bold text-purple-300 mb-2"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
@@ -204,9 +205,7 @@ function Projects() {
                 >
                   {stat.number}
                 </motion.div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {stat.label}
-                </div>
+                <div className="text-sm text-gray-300">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -229,14 +228,15 @@ function Projects() {
             Let's discuss how we can bring your ideas to life with cutting-edge
             technology
           </p>
-          <motion.button
-            className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onTap={() => (window.location.href = "/contact")}
-          >
-            Start a Conversation
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start a Conversation
+            </motion.button>
+          </Link>
         </div>
       </motion.section>
     </motion.main>

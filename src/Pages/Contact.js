@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Form from "../Components/Form";
 import { contactDetails, socialMediaUrl } from "../Details";
@@ -21,13 +22,13 @@ function Contact() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
           Get In{" "}
-          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             Touch
           </span>
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
           Ready to start your next project? Let's create something amazing
           together. I'm always excited to work on new challenges and bring
           innovative ideas to life.
@@ -55,7 +56,7 @@ function Contact() {
           {/* Contact Cards */}
           <div className="space-y-6">
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
               whileHover={{ y: -5, scale: 1.02 }}
             >
               <div className="flex items-center space-x-4">
@@ -70,16 +71,14 @@ function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">
-                    Email
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400">{email}</p>
+                  <h3 className="font-semibold text-white">Email</h3>
+                  <p className="text-gray-300">{email}</p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
               whileHover={{ y: -5, scale: 1.02 }}
             >
               <div className="flex items-center space-x-4">
@@ -93,16 +92,14 @@ function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">
-                    Phone
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400">{phone}</p>
+                  <h3 className="font-semibold text-white">Phone</h3>
+                  <p className="text-gray-300">{phone}</p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
               whileHover={{ y: -5, scale: 1.02 }}
             >
               <div className="flex items-center space-x-4">
@@ -120,12 +117,8 @@ function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">
-                    Location
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    Addis Ababa, Ethiopia
-                  </p>
+                  <h3 className="font-semibold text-white">Location</h3>
+                  <p className="text-gray-300">Addis Ababa, Ethiopia</p>
                 </div>
               </div>
             </motion.div>
@@ -133,14 +126,12 @@ function Contact() {
 
           {/* Social Media */}
           <motion.div
-            className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-6"
+            className="bg-purple-500/20 backdrop-blur-sm rounded-2xl p-6 border border-purple-400/30"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              Follow Me
-            </h3>
+            <h3 className="text-lg font-semibold text-white mb-4">Follow Me</h3>
             <div className="flex space-x-4">
               {[
                 {
@@ -193,22 +184,22 @@ function Contact() {
 
           {/* Availability Status */}
           <motion.div
-            className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl p-6"
+            className="bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-2xl p-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <div className="flex items-center space-x-3">
               <motion.div
-                className="w-3 h-3 bg-green-500 rounded-full"
+                className="w-3 h-3 bg-green-400 rounded-full"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
               />
               <div>
-                <h3 className="font-semibold text-green-800 dark:text-green-200">
+                <h3 className="font-semibold text-green-300">
                   Available for Projects
                 </h3>
-                <p className="text-sm text-green-700 dark:text-green-300">
+                <p className="text-sm text-green-200">
                   Currently accepting new opportunities
                 </p>
               </div>
@@ -225,8 +216,8 @@ function Contact() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
             Frequently Asked Questions
           </h2>
 
@@ -255,18 +246,16 @@ function Contact() {
             ].map((faq, index) => (
               <motion.div
                 key={index}
-                className="p-4 bg-gray-50 dark:bg-gray-700 rounded-xl"
+                className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="font-semibold text-white mb-2">
                   {faq.question}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {faq.answer}
-                </p>
+                <p className="text-sm text-gray-300">{faq.answer}</p>
               </motion.div>
             ))}
           </div>
