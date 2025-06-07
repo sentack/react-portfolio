@@ -12,7 +12,7 @@ import Skills from "./Pages/Skills";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 transition-all duration-500">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 transition-all duration-500">
       <Router>
         <div className="relative">
           {/* Animated background elements */}
