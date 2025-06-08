@@ -16,14 +16,7 @@ function Projects() {
     { id: "design", label: "Design" },
   ];
 
-  const filteredProjects =
-    filter === "all"
-      ? projectDetails
-      : projectDetails.filter((project) =>
-          project.techstack
-            .toLowerCase()
-            .includes(filter === "web" ? "html" : filter)
-        );
+  const filteredProjects = projectDetails;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -152,14 +145,7 @@ function Projects() {
                 variants={itemVariants}
                 layout
               >
-                <Project
-                  title={project.title}
-                  image={project.image}
-                  description={project.description}
-                  techstack={project.techstack}
-                  previewLink={project.previewLink}
-                  githubLink={project.githubLink}
-                />
+                <Project project={project} />
               </motion.div>
             ))}
           </motion.div>
@@ -182,9 +168,9 @@ function Projects() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { number: "5+", label: "Projects Completed", icon: "🚀" },
-              { number: "15+", label: "Technologies Used", icon: "⚡" },
+              { number: "10+", label: "Technologies Used", icon: "⚡" },
               { number: "100%", label: "Client Satisfaction", icon: "⭐" },
-              { number: "5+", label: "Years Experience", icon: "📅" },
+              { number: "3+", label: "Years Experience", icon: "📅" },
             ].map((stat, index) => (
               <motion.div
                 key={index}

@@ -4,14 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import ProjectModal from "./ProjectModal";
 
-function Project({
-  title,
-  image,
-  description,
-  techstack,
-  previewLink,
-  githubLink,
-}) {
+function Project({ project }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Generate a random gradient for each project card
@@ -25,15 +18,6 @@ function Project({
 
   const randomGradient =
     gradients[Math.floor(Math.random() * gradients.length)];
-
-  const projectData = {
-    title,
-    image,
-    description,
-    techstack,
-    previewLink,
-    githubLink,
-  };
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -52,8 +36,8 @@ function Project({
         {/* Image container with overlay */}
         <div className="relative overflow-hidden h-64">
           <motion.img
-            src={image}
-            alt={title}
+            src={project.image}
+            alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
           />
@@ -71,25 +55,22 @@ function Project({
             }}
           >
             <div className="group-hover:translate-y-0 transform transition-transform duration-500 delay-100">
-              <h1 className="text-2xl font-bold mb-3">{title}</h1>
+              <h1 className="text-2xl font-bold mb-3">{project.title}</h1>
 
               <p className="text-sm text-white mb-4 line-clamp-3">
-                {description}
+                {project.description}
               </p>
 
               {/* Tech stack tags */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {techstack
-                  .split(", ")
-                  .slice(0, 3)
-                  .map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full font-medium"
-                    >
-                      {tech.trim()}
-                    </span>
-                  ))}
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full font-medium"
+                  >
+                    {tech.trim()}
+                  </span>
+                ))}
               </div>
 
               {/* View Details Button */}
@@ -125,9 +106,9 @@ function Project({
                   <span>View Details</span>
                 </motion.button>
 
-                {previewLink && (
+                {project.previewLink && (
                   <motion.a
-                    href={previewLink}
+                    href={project.previewLink}
                     target="_blank"
                     rel="noreferrer noopener"
                     className="flex items-center space-x-2 px-4 py-2 bg-gray-900/90 text-white rounded-lg font-medium hover:bg-gray-900 transition-colors"
@@ -187,7 +168,7 @@ function Project({
         <div className="p-6">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
-              {title}
+              {project.title}
             </h2>
             <motion.div
               className="text-gray-400 group-hover:text-purple-400 transition-colors"
@@ -212,25 +193,22 @@ function Project({
 
           {/* Project description - always visible */}
           <p className="text-sm text-gray-300 mb-4 line-clamp-3 leading-relaxed">
-            {description}
+            {project.description}
           </p>
 
           {/* Tech stack preview */}
           <div className="flex flex-wrap gap-1">
-            {techstack
-              .split(", ")
-              .slice(0, 2)
-              .map((tech, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded-md border border-white/20"
-                >
-                  {tech.trim()}
-                </span>
-              ))}
-            {techstack.split(", ").length > 2 && (
+            {project.technologies.map((tech, index) => (
+              <span
+                key={index}
+                className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded-md border border-white/20"
+              >
+                {tech.trim()}
+              </span>
+            ))}
+            {project.technologies.length > 2 && (
               <span className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-md border border-purple-400/30">
-                +{techstack.split(", ").length - 2} more
+                +{project.technologies.length - 2} more
               </span>
             )}
           </div>
@@ -246,7 +224,7 @@ function Project({
 
       {/* Project Modal */}
       <ProjectModal
-        project={projectData}
+        project={project}
         isOpen={isModalOpen}
         onClose={closeModal}
       />

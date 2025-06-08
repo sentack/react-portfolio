@@ -143,7 +143,7 @@ function About() {
                   ease: "easeInOut",
                 }}
               >
-                5+ Years
+                3+ Years
               </motion.div>
 
               <motion.div

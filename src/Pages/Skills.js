@@ -151,12 +151,12 @@ function Skills() {
               },
               {
                 category: "Backend",
-                skills: ["Node.js", "Python", "PHP", "Django"],
+                skills: ["Node.js", "Python", "PHP", "MySQL", "MongoDB"],
                 color: "from-green-500 to-emerald-500",
               },
               {
                 category: "Mobile",
-                skills: ["Flutter", "Dart", "React Native"],
+                skills: ["Flutter", "Dart"],
                 color: "from-purple-500 to-pink-500",
               },
               {
