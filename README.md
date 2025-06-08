@@ -1,6 +1,3 @@
-Here is the full `README.md` content in Markdown format:
-
-````markdown
 # React Portfolio Website
 
 A minimal, modern, and responsive personal portfolio built using **ReactJS** and **TailwindCSS**. This portfolio highlights your education, experience, and projects, with seamless transitions and engaging animations.
@@ -44,6 +41,7 @@ A minimal, modern, and responsive personal portfolio built using **ReactJS** and
 git clone https://github.com/sentack/react-portfolio.git
 cd react-portfolio
 ```
+
 ````
 
 ### Install Dependencies
@@ -70,12 +68,12 @@ npm run dev
 
 2. **Update SEO Metadata**
 
-  * Edit `index.html` inside `public/` to modify the `<title>`, `<meta>` tags, and favicon.
+- Edit `index.html` inside `public/` to modify the `<title>`, `<meta>` tags, and favicon.
 
 3. **Customize Styling**
 
-  * TailwindCSS classes can be modified in the components to fit your personal style.
-  * Global settings can be updated in `tailwind.config.js`.
+- TailwindCSS classes can be modified in the components to fit your personal style.
+- Global settings can be updated in `tailwind.config.js`.
 
 ---
 
@@ -83,7 +81,7 @@ npm run dev
 
 ```bash
 npm run build
-````
+```
 
 ---
 
