@@ -307,7 +307,7 @@ function ProjectModal({ project, isOpen, onClose }) {
                       transition={{ delay: 0.6 }}
                     >
                       <h3 className="text-xl font-semibold text-white mb-4">
-                        Challenges & Solutions
+                        Challenges Faced
                       </h3>
                       <div className="space-y-3">
                         {project.challenges.map((challenge, index) => (

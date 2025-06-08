@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Project from "../Components/Project";
@@ -8,6 +8,18 @@ import { projectDetails } from "../Details";
 
 function Projects() {
   const [filter, setFilter] = useState("all");
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
+
+  // Auto-hide disclaimer after 5 seconds
+  useEffect(() => {
+    if (showDisclaimer) {
+      const timer = setTimeout(() => {
+        setShowDisclaimer(false);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showDisclaimer]);
 
   const categories = [
     { id: "all", label: "All Projects" },
@@ -48,6 +60,70 @@ function Projects() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
+      {/* Floating Disclaimer */}
+      <AnimatePresence>
+        {showDisclaimer && (
+          <motion.div
+            className="fixed bottom-4 left-4 right-4 z-50 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <div className="bg-white/5 backdrop-blur-md border border-amber-400/30 rounded-xl p-4 shadow-2xl">
+              <div className="flex items-start justify-between space-x-3">
+                <div className="flex items-start space-x-3 flex-1">
+                  <div className="flex-shrink-0">
+                    <svg
+                      className="w-5 h-5 text-amber-300 mt-0.5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-sm font-semibold text-amber-200">
+                      Portfolio Disclaimer
+                    </h3>
+                    <p className="text-sm text-amber-100 mt-1">
+                      This portfolio showcases a selection of my work, excluding
+                      projects that contain private client information, which
+                      prevents me from sharing the corresponding GitHub
+                      repositories.
+                    </p>
+                  </div>
+                </div>
+                <motion.button
+                  onClick={() => setShowDisclaimer(false)}
+                  className="flex-shrink-0 p-1 rounded-lg text-amber-200 hover:text-white hover:bg-amber-400/20 transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Header */}
       <motion.section
         className="text-center mb-16"
@@ -65,40 +141,6 @@ function Projects() {
           A showcase of my work, featuring web applications, mobile apps, and
           design projects
         </p>
-
-        {/* Disclaimer */}
-        <motion.div
-          className="bg-transparent backdrop-blur-sm border border-amber-400/30 rounded-xl p-4 max-w-4xl mx-auto"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div className="flex items-start space-x-3">
-            <div className="flex-shrink-0">
-              <svg
-                className="w-5 h-5 text-amber-300 mt-0.5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <div className="text-left">
-              <h3 className="text-sm font-semibold text-amber-200">
-                Portfolio Disclaimer
-              </h3>
-              <p className="text-sm text-amber-100 mt-1">
-                This portfolio showcases a selection of my work, excluding
-                projects that contain private client information, which prevents
-                me from sharing the corresponding GitHub repositories.
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </motion.section>
 
       {/* Filter Buttons */}
