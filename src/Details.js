@@ -183,6 +183,7 @@ export const projectDetails = [
   {
     title: "Berhane Kristos Church Website",
     image: churchImage1,
+    category: "web",
     images: [
       churchImage1,
       churchImage2,
@@ -212,6 +213,7 @@ export const projectDetails = [
   {
     title: "Salma Furniture Website",
     image: salmaImage1,
+    category: "web",
     images: [salmaImage1],
     description: `Website for Salma Furniture. The website features their exquisite furniture collection and offers a user-friendly browsing experience for visitors.`,
     previewLink: "",
@@ -235,6 +237,7 @@ export const projectDetails = [
   {
     title: "DeepSeek-R1 AI Chat App",
     image: chatbotImage1,
+    category: "web",
     images: [chatbotImage1, chatbotImage2, chatbotImage3],
     description: `I built a modern, responsive AI chat app using the DeepSeek-R1 model. It features real-time conversations, dark/light mode, code highlighting with copy support, and persistent chat history—all in a sleek, intuitive UI.`,
     previewLink: "https://eth-chatbot.onrender.com/",
@@ -265,6 +268,7 @@ export const projectDetails = [
   {
     title: "Personal Portfolio",
     image: portfolioImage1,
+    category: "web",
     images: [
       portfolioImage1,
       portfolioImage2,

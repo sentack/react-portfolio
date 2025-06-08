@@ -13,10 +13,13 @@ function Projects() {
     { id: "all", label: "All Projects" },
     { id: "web", label: "Web Apps" },
     { id: "mobile", label: "Mobile" },
-    { id: "design", label: "Design" },
   ];
 
-  const filteredProjects = projectDetails;
+  // Filter projects based on the selected category comparing with project.category value
+  const filteredProjects =
+    filter === "all"
+      ? projectDetails
+      : projectDetails.filter((project) => project.category === filter);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -131,24 +134,54 @@ function Projects() {
         animate="visible"
       >
         <AnimatePresence mode="wait">
-          <motion.div
-            key={filter}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={`${project.title}-${filter}`}
-                variants={itemVariants}
-                layout
-              >
-                <Project project={project} />
-              </motion.div>
-            ))}
-          </motion.div>
+          {filteredProjects.length === 0 ? (
+            <motion.div
+              key="no-projects"
+              className="text-center py-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 max-w-md mx-auto">
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  No Projects Found
+                </h3>
+                <p className="text-gray-300 mb-6">
+                  No projects match the selected category. Try selecting a
+                  different filter or check back later for new projects.
+                </p>
+                <motion.button
+                  onClick={() => setFilter("all")}
+                  className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View All Projects
+                </motion.button>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key={filter}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={`${project.title}-${filter}`}
+                  variants={itemVariants}
+                  layout
+                >
+                  <Project project={project} />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </AnimatePresence>
       </motion.section>
 
