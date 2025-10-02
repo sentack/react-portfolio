@@ -64,9 +64,9 @@ function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <p className="text-lg text-gray-200">{personalDetails.about1}</p>
-              <p className="text-gray-300">{personalDetails.about2}</p>
+              {/* <p className="text-gray-300">{personalDetails.about2}</p>
               <p className="text-gray-300">{personalDetails.about3}</p>
-              <p className="text-gray-300">{personalDetails.about4}</p>
+              <p className="text-gray-300">{personalDetails.about4}</p> */}
             </motion.div>
 
             {/* Skills highlight */}

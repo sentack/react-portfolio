@@ -73,10 +73,7 @@ export const personalDetails = {
   name: "Sena Takele",
   tagline: "But, you can call me Sentack :)",
   img: profile,
-  about1: `I'm a Full-stack Developer focused on building smooth, user-friendly web and mobile apps, with solid experience in both front-end and back-end development.`,
-  about2: `I enjoy solving problems and creating smart, practical solutions. I’m quick to learn new technologies and skilled at building websites from the ground up.`,
-  about3: `Alongside software development, I have over 7 years of experience in graphic design, video production, and photography—specializing in logos, web design, motion graphics, and video editing.`,
-  about4: `I'm committed to continuous learning and always exploring new tools and techniques to stay ahead in tech and design.`,
+  about1: `Full-stack engineer with 3 years of experience in the MERN stack, specializing in building scalable and user-friendly web applications. Recently earned a Software Engineering degree, combining academic knowledge with real-world expertise. Skilled in front-end and back-end development, problem-solving, and delivering high-quality software solutions through collaboration and innovation.`
 };
 
 // Social Media
@@ -88,8 +85,7 @@ export const socialMediaUrl = {
 };
 
 // Work Experience
-export const workDetails = [
-  {
+export const workDetails = [{
     Position: "Photographer and Video Editor",
     Company: `Bini Pictures`,
     Location: "Addis Ababa",
@@ -127,8 +123,7 @@ export const workDetails = [
 ];
 
 // Enter your Education Details here
-export const eduDetails = [
-  {
+export const eduDetails = [{
     Position: "High School Diploma",
     Company: "Medhanealem Preparatory School",
     Location: "Addis Ababa",
@@ -147,40 +142,119 @@ export const eduDetails = [
 // Tech Stack and Tools
 export const techStackDetails = [
   // Web
-  { name: "HTML", image: html, type: "webdev" },
-  { name: "CSS", image: css, type: "webdev" },
-  { name: "Sass", image: sass, type: "webdev" },
-  { name: "Tailwind", image: tailwind, type: "webdev" },
-  { name: "Bootstrap", image: bootstrap, type: "webdev" },
-  { name: "JavaScript", image: js, type: "webdev" },
-  { name: "React", image: react, type: "webdev" },
-  { name: "PHP", image: php, type: "webdev" },
-  { name: "NodeJS", image: node, type: "webdev" },
+  {
+    name: "HTML",
+    image: html,
+    type: "webdev"
+  },
+  {
+    name: "CSS",
+    image: css,
+    type: "webdev"
+  },
+  {
+    name: "Sass",
+    image: sass,
+    type: "webdev"
+  },
+  {
+    name: "Tailwind",
+    image: tailwind,
+    type: "webdev"
+  },
+  {
+    name: "Bootstrap",
+    image: bootstrap,
+    type: "webdev"
+  },
+  {
+    name: "JavaScript",
+    image: js,
+    type: "webdev"
+  },
+  {
+    name: "React",
+    image: react,
+    type: "webdev"
+  },
+  {
+    name: "PHP",
+    image: php,
+    type: "webdev"
+  },
+  {
+    name: "NodeJS",
+    image: node,
+    type: "webdev"
+  },
   // { name: "Django", image: django, type: "webdev" },
   // { name: "Flask", image: flask, type: "webdev" },
 
   // Mobile
-  { name: "Flutter", image: flutter, type: "mobile" },
-  { name: "Dart", image: dart, type: "mobile" },
+  {
+    name: "Flutter",
+    image: flutter,
+    type: "mobile"
+  },
+  {
+    name: "Dart",
+    image: dart,
+    type: "mobile"
+  },
   // { name: "Python", image: py, type: "mobile" },
 
   // Databases
-  { name: "MySql", image: mysql, type: "databases" },
-  { name: "MongoDB", image: mongodb, type: "databases" },
+  {
+    name: "MySql",
+    image: mysql,
+    type: "databases"
+  },
+  {
+    name: "MongoDB",
+    image: mongodb,
+    type: "databases"
+  },
 
   //Tools
-  { name: "A. Studio", image: astudio, type: "tools" },
-  { name: "VSCode", image: vscode, type: "tools" },
-  { name: "npm", image: npm, type: "tools" },
-  { name: "Git", image: git, type: "tools" },
-  { name: "Figma", image: figma, type: "tools" },
-  { name: "Vercel", image: vercel, type: "tools" },
-  { name: "Netlify", image: netlify, type: "tools" },
+  {
+    name: "A. Studio",
+    image: astudio,
+    type: "tools"
+  },
+  {
+    name: "VSCode",
+    image: vscode,
+    type: "tools"
+  },
+  {
+    name: "npm",
+    image: npm,
+    type: "tools"
+  },
+  {
+    name: "Git",
+    image: git,
+    type: "tools"
+  },
+  {
+    name: "Figma",
+    image: figma,
+    type: "tools"
+  },
+  {
+    name: "Vercel",
+    image: vercel,
+    type: "tools"
+  },
+  {
+    name: "Netlify",
+    image: netlify,
+    type: "tools"
+  },
 ];
 
 // Project Details
-export const projectDetails = [
-  {
+export const projectDetails = [{
     title: "Berhane Kristos Church Website",
     image: churchImage1,
     category: "web",
