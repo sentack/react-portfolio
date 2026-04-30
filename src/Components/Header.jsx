@@ -9,7 +9,6 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { linkdein, github, twitter } = socialMediaUrl;
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
