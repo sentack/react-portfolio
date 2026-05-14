@@ -2,7 +2,7 @@
 import logo from "./assets/logo.png";
 
 // Profile Image
-import profile from "./assets/profile.JPG";
+import profile from "./assets/profile.jpg";
 
 // Tech stack icons — from react-icons/si (Simple Icons)
 import {
