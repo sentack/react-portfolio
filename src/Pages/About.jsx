@@ -13,17 +13,17 @@ const fadeUp = {
 
 function About() {
   const highlights = [
-    { icon: "✦", title: "Design", desc: "UI/UX & Graphics" },
-    { icon: "✦", title: "Development", desc: "Full-stack Solutions" },
-    { icon: "✦", title: "Mobile", desc: "Flutter & Dart" },
-    { icon: "✦", title: "Performance", desc: "Optimized & Fast" },
+    { label: "Frontend", desc: "React, JavaScript, HTML/CSS" },
+    { label: "Backend", desc: "Node.js, PHP, Django, Express" },
+    { label: "Databases", desc: "MongoDB, MySQL, PostgreSQL" },
+    { label: "DevOps", desc: "Docker, GCP, AWS, Git" },
   ];
 
   return (
     <section id="about" className="py-32">
       <div className="site-container">
         {/* Section header */}
-        <motion.div className="mb-20" {...fadeUp}>
+        <motion.div className="mb-16" {...fadeUp}>
           <span className="section-label">01 / About</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-3 leading-tight">
             About
@@ -31,60 +31,69 @@ function About() {
           </h2>
         </motion.div>
 
-        {/* Bio + Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-28">
-          <motion.div className="space-y-6" {...fadeUp}>
+        {/* Bio + skill summary */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-28">
+          {/* Bio */}
+          <motion.div className="lg:col-span-3 space-y-6" {...fadeUp}>
             <p className="text-zinc-300 leading-relaxed text-base">
               {personalDetails.about1}
             </p>
 
-            {/* Highlight grid */}
-            <div className="grid grid-cols-2 gap-3 pt-4">
-              {highlights.map((h, i) => (
-                <motion.div
-                  key={i}
-                  className="border border-zinc-900 hover:border-zinc-700 p-4 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  viewport={{ once: true }}
+            {/* Soft skills / languages row */}
+            <div className="flex flex-wrap gap-3 pt-2">
+              {[
+                "Problem Solving",
+                "Creative Thinking",
+                "Adaptability",
+                "Communication",
+                "Teamwork",
+              ].map((s) => (
+                <span
+                  key={s}
+                  className="text-xs border border-zinc-800 text-zinc-500 px-3 py-1"
                 >
-                  <span className="text-zinc-600 text-xs mb-2 block">
-                    {h.icon}
-                  </span>
-                  <h4 className="text-sm font-semibold text-white">
-                    {h.title}
-                  </h4>
-                  <p className="text-xs text-zinc-500 mt-0.5">{h.desc}</p>
-                </motion.div>
+                  {s}
+                </span>
+              ))}
+            </div>
+
+            {/* Languages */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                "English (Fluent)",
+                "Amharic (Native)",
+                "Afan Oromo (Native)",
+              ].map((l) => (
+                <span
+                  key={l}
+                  className="text-xs text-zinc-600"
+                >
+                  {l}
+                </span>
               ))}
             </div>
           </motion.div>
 
-          {/* Profile Image */}
-          <motion.div
-            className="flex justify-center lg:justify-end"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="relative">
-              <div className="absolute -top-3 -right-3 w-full h-full border border-zinc-900" />
-              <div className="w-64 h-72 sm:w-72 sm:h-80 overflow-hidden border border-zinc-800">
-                <img
-                  src={personalDetails.img}
-                  alt="Sena Takele"
-                  className="w-full h-full object-cover grayscale-[15%]"
-                />
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-black border border-zinc-800 px-4 py-2">
-                <span className="text-xs text-zinc-500 block">BSc</span>
-                <span className="text-xs text-white font-medium">
-                  Software Engineering
-                </span>
-              </div>
-            </div>
+          {/* Skill summary cards */}
+          <motion.div className="lg:col-span-2 grid grid-cols-2 gap-px bg-zinc-900" {...fadeUp}>
+            {highlights.map((h, i) => (
+              <motion.div
+                key={i}
+                className="bg-black p-5 hover:bg-zinc-950 transition-colors duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-xs text-zinc-700 font-mono mb-2">
+                  0{i + 1}
+                </div>
+                <h4 className="text-sm font-semibold text-white mb-1">
+                  {h.label}
+                </h4>
+                <p className="text-xs text-zinc-500 leading-relaxed">{h.desc}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
@@ -95,6 +104,9 @@ function About() {
             <h3 className="text-2xl md:text-3xl font-bold mt-2">
               Work History
             </h3>
+            <p className="text-xs text-zinc-600 mt-2">
+              Click any role to expand details
+            </p>
           </motion.div>
           <div className="max-w-3xl space-y-4">
             {workDetails.map((work, i) => (
@@ -111,6 +123,7 @@ function About() {
                   location={work.Location}
                   type={work.Type}
                   duration={work.Duration}
+                  details={work.details}
                 />
               </motion.div>
             ))}
@@ -138,6 +151,7 @@ function About() {
                   location={edu.Location}
                   type={edu.Type}
                   duration={edu.Duration}
+                  details={edu.details}
                 />
               </motion.div>
             ))}

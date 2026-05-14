@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-function Skill({ name, image }) {
+function Skill({ name, icon: Icon, label }) {
   return (
     <motion.div
       className="group flex flex-col items-center gap-3"
@@ -16,11 +16,13 @@ function Skill({ name, image }) {
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
-        <img
-          className="w-9 h-9 object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-          src={image}
-          alt={name}
-        />
+        {Icon ? (
+          <Icon size={28} className="text-zinc-500 group-hover:text-white transition-colors duration-300" />
+        ) : (
+          <span className="text-xs font-bold text-zinc-500 group-hover:text-white transition-colors duration-300 tracking-wider">
+            {label || name}
+          </span>
+        )}
       </motion.div>
       <span className="text-xs text-zinc-600 group-hover:text-zinc-300 text-center transition-colors duration-200 tracking-wide">
         {name}

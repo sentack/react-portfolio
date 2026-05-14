@@ -6,21 +6,14 @@ import { techStackDetails } from "../Details";
 import Skill from "../Components/skill";
 
 const categories = [
-  { id: "webdev", label: "Web Dev" },
-  { id: "mobile", label: "Mobile" },
+  { id: "frontend", label: "Frontend" },
+  { id: "backend", label: "Backend" },
   { id: "databases", label: "Databases" },
   { id: "tools", label: "Tools" },
 ];
 
-const expertiseSummary = [
-  { category: "Frontend", skills: ["React", "JavaScript", "HTML/CSS", "Tailwind"] },
-  { category: "Backend", skills: ["Node.js", "PHP", "MySQL", "MongoDB"] },
-  { category: "Mobile", skills: ["Flutter", "Dart"] },
-  { category: "Tools", skills: ["Git", "VSCode", "Figma", "Vercel"] },
-];
-
 function Skills() {
-  const [selected, setSelected] = useState("webdev");
+  const [selected, setSelected] = useState("frontend");
 
   const filtered = techStackDetails.filter(({ type }) => type === selected);
 
@@ -85,56 +78,15 @@ function Skills() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
               >
-                <Skill name={skill.name} image={skill.image} type={skill.type} />
+                <Skill name={skill.name} icon={skill.icon} label={skill.label} />
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
 
-        {/* Expertise overview */}
-        <motion.div
-          className="mt-24 border-t border-zinc-900 pt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="mb-10">
-            <span className="section-label">Overview</span>
-            <h3 className="text-2xl font-bold mt-2">Expertise Areas</h3>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-900">
-            {expertiseSummary.map((area, i) => (
-              <motion.div
-                key={area.category}
-                className="bg-black p-6 hover:bg-zinc-950 transition-colors duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-xs text-zinc-700 mb-4 font-mono">
-                  0{i + 1}
-                </div>
-                <h4 className="text-sm font-semibold text-white mb-3">
-                  {area.category}
-                </h4>
-                <div className="space-y-1.5">
-                  {area.skills.map((s) => (
-                    <div key={s} className="text-xs text-zinc-500">
-                      — {s}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* CTA */}
         <motion.div
-          className="mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-zinc-900 p-8"
+          className="mt-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-zinc-900 p-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
