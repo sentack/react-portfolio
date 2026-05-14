@@ -1,190 +1,121 @@
 "use client";
 
-import React from "react";
-import { motion, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Work from "../Components/Work";
 import { personalDetails, workDetails, eduDetails } from "../Details";
 
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+  viewport: { once: true },
+};
+
 function About() {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
+  const highlights = [
+    { label: "Frontend", desc: "React, JavaScript, HTML/CSS" },
+    { label: "Backend", desc: "Node.js, PHP, Django, Express" },
+    { label: "Databases", desc: "MongoDB, MySQL, PostgreSQL" },
+    { label: "DevOps", desc: "Docker, GCP, AWS, Git" },
+  ];
 
   return (
-    <motion.main
-      className="container mx-auto max-width pt-24 pb-20 px-6"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      {/* Hero Section */}
-      <motion.section className="mb-20" variants={itemVariants}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              About{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Me
-              </span>
-            </motion.h1>
+    <section id="about" className="py-32">
+      <div className="site-container">
+        {/* Section header */}
+        <motion.div className="mb-16" {...fadeUp}>
+          <span className="section-label">01 / About</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-3 leading-tight">
+            About
+            <span className="italic font-light text-zinc-400"> Me.</span>
+          </h2>
+        </motion.div>
 
-            <motion.div
-              className="space-y-6 text-gray-300 leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <p className="text-lg text-gray-200">{personalDetails.about1}</p>
-              {/* <p className="text-gray-300">{personalDetails.about2}</p>
-              <p className="text-gray-300">{personalDetails.about3}</p>
-              <p className="text-gray-300">{personalDetails.about4}</p> */}
-            </motion.div>
+        {/* Bio + skill summary */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-28">
+          {/* Bio */}
+          <motion.div className="lg:col-span-3 space-y-6" {...fadeUp}>
+            <p className="text-zinc-300 leading-relaxed text-base">
+              {personalDetails.about1}
+            </p>
 
-            {/* Skills highlight */}
-            <motion.div
-              className="mt-8 grid grid-cols-2 gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
+            {/* Soft skills / languages row */}
+            <div className="flex flex-wrap gap-3 pt-2">
               {[
-                { icon: "🎨", title: "Design", desc: "UI/UX & Graphics" },
-                {
-                  icon: "💻",
-                  title: "Development",
-                  desc: "Full-stack Solutions",
-                },
-                { icon: "📱", title: "Mobile", desc: "iOS & Android" },
-                { icon: "🚀", title: "Performance", desc: "Optimized & Fast" },
-              ].map((skill, index) => (
-                <motion.div
-                  key={index}
-                  className="p-4 bg-white/10 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + index * 0.1 }}
+                "Problem Solving",
+                "Creative Thinking",
+                "Adaptability",
+                "Communication",
+                "Teamwork",
+              ].map((s) => (
+                <span
+                  key={s}
+                  className="text-xs border border-zinc-800 text-zinc-500 px-3 py-1"
                 >
-                  <div className="text-2xl mb-2">{skill.icon}</div>
-                  <h3 className="font-semibold text-white">{skill.title}</h3>
-                  <p className="text-sm text-gray-300">{skill.desc}</p>
-                </motion.div>
+                  {s}
+                </span>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
 
-          {/* Profile image with decorative elements */}
-          <motion.div
-            className="relative flex justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div className="relative">
-              {/* Decorative background */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 rounded-2xl opacity-20 transform rotate-6"
-                animate={{
-                  rotate: [6, -6, 6],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              />
-
-              <motion.img
-                src={personalDetails.img}
-                alt="Profile"
-                className="relative w-80 h-80 object-cover rounded-2xl shadow-2xl border-4 border-white"
-                whileHover={{ scale: 1.05, rotate: -2 }}
-                transition={{ duration: 0.3 }}
-              />
-
-              {/* Floating badges */}
-              <motion.div
-                className="absolute -top-4 -right-4 px-3 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white text-sm font-semibold rounded-full shadow-lg"
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              >
-                3+ Years
-              </motion.div>
-
-              <motion.div
-                className="absolute -bottom-4 -left-4 px-3 py-2 bg-gradient-to-r from-purple-400 to-pink-500 text-white text-sm font-semibold rounded-full shadow-lg"
-                animate={{
-                  y: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              >
-                Full-stack
-              </motion.div>
+            {/* Languages */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                "English (Fluent)",
+                "Amharic (Native)",
+                "Afan Oromo (Native)",
+              ].map((l) => (
+                <span
+                  key={l}
+                  className="text-xs text-zinc-600"
+                >
+                  {l}
+                </span>
+              ))}
             </div>
           </motion.div>
-        </div>
-      </motion.section>
 
-      {/* Work Experience Section */}
-      <motion.section className="mb-20" variants={itemVariants} ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-            Work{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Experience
-            </span>
-          </h2>
-
-          <div className="max-w-4xl mx-auto space-y-8">
-            {workDetails.map((work, index) => (
+          {/* Skill summary cards */}
+          <motion.div className="lg:col-span-2 grid grid-cols-2 gap-px bg-zinc-900" {...fadeUp}>
+            {highlights.map((h, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                key={i}
+                className="bg-black p-5 hover:bg-zinc-950 transition-colors duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-xs text-zinc-700 font-mono mb-2">
+                  0{i + 1}
+                </div>
+                <h4 className="text-sm font-semibold text-white mb-1">
+                  {h.label}
+                </h4>
+                <p className="text-xs text-zinc-500 leading-relaxed">{h.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Work Experience */}
+        <div className="mb-20">
+          <motion.div className="mb-10" {...fadeUp}>
+            <span className="section-label">Experience</span>
+            <h3 className="text-2xl md:text-3xl font-bold mt-2">
+              Work History
+            </h3>
+            <p className="text-xs text-zinc-600 mt-2">
+              Click any role to expand details
+            </p>
+          </motion.div>
+          <div className="max-w-3xl space-y-4">
+            {workDetails.map((work, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                viewport={{ once: true }}
               >
                 <Work
                   position={work.Position}
@@ -192,34 +123,26 @@ function About() {
                   location={work.Location}
                   type={work.Type}
                   duration={work.Duration}
+                  details={work.details}
                 />
               </motion.div>
             ))}
           </div>
-        </motion.div>
-      </motion.section>
+        </div>
 
-      {/* Education Section */}
-      <motion.section variants={itemVariants}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Education
-            </span>
-          </h2>
-
-          <div className="max-w-4xl mx-auto space-y-8">
-            {eduDetails.map((edu, index) => (
+        {/* Education */}
+        <div>
+          <motion.div className="mb-10" {...fadeUp}>
+            <span className="section-label">Education</span>
+            <h3 className="text-2xl md:text-3xl font-bold mt-2">Academic</h3>
+          </motion.div>
+          <div className="max-w-3xl space-y-4">
+            {eduDetails.map((edu, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 50 }}
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
                 viewport={{ once: true }}
               >
                 <Work
@@ -228,41 +151,48 @@ function About() {
                   location={edu.Location}
                   type={edu.Type}
                   duration={edu.Duration}
+                  details={edu.details}
                 />
               </motion.div>
             ))}
           </div>
-        </motion.div>
-      </motion.section>
-
-      {/* Call to Action */}
-      <motion.section
-        className="mt-20 text-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Let's Work Together
-          </h3>
-          <p className="text-lg mb-6 opacity-90">
-            Ready to bring your ideas to life? Let's create something amazing
-            together.
-          </p>
-          <Link to="/contact">
-            <motion.button
-              className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get In Touch
-            </motion.button>
-          </Link>
         </div>
-      </motion.section>
-    </motion.main>
+
+        {/* CTA */}
+        <motion.div
+          className="mt-20 border border-zinc-900 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          {...fadeUp}
+        >
+          <div>
+            <h4 className="text-lg font-semibold text-white">
+              Let's Work Together
+            </h4>
+            <p className="text-sm text-zinc-500 mt-1">
+              Ready to bring your ideas to life.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium hover:bg-zinc-100 transition-colors"
+          >
+            Get In Touch
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+        </motion.div>
+      </div>
+    </section>
   );
 }
 

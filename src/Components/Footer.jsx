@@ -5,55 +5,34 @@ import { motion } from "framer-motion";
 function Footer() {
   return (
     <motion.footer
-      className="relative mt-20 py-2 bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
+      className="border-t border-zinc-900 py-8"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur-sm"></div>
-
-      <div className="relative container mx-auto max-width">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <p className="text-white/90 text-sm md:text-base">
-            Designed and Coded with{" "}
-            <motion.span
-              className="text-red-400 inline-block"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-            >
-              ❤️
-            </motion.span>{" "}
-            by{" "}
-            <motion.a
-              className="font-semibold text-purple-100 hover:text-white transition-colors"
-              href="https://sentack-portfolio.vercel.app/"
-              target="_blank"
-              rel="noreferrer noopener"
-              whileHover={{ scale: 1.05 }}
-            >
-              Sentack
-            </motion.a>
-          </p>
-
-          <motion.div
-            className="mt-2 flex justify-center space-x-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+      <div className="site-container flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-xs text-zinc-600 tracking-wide">
+          © 2025 Sena Takele. All rights reserved.
+        </p>
+        <p className="text-xs text-zinc-600">
+          Designed &amp; built by{" "}
+          <a
+            href="https://sentack-portfolio.vercel.app/"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
-            <span className="text-purple-100">Love</span>
-            <span className="text-white/60">•</span>
-            <span className="text-blue-100">Coffee</span>
-            <span className="text-white/60">•</span>
-            <span className="text-indigo-100">Code</span>
-          </motion.div>
-        </motion.div>
+            Sentack
+          </a>
+        </p>
+        <div className="flex items-center gap-2 text-xs text-zinc-700">
+          <span>Love</span>
+          <span>·</span>
+          <span>Coffee</span>
+          <span>·</span>
+          <span>Code</span>
+        </div>
       </div>
     </motion.footer>
   );
