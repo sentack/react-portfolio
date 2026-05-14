@@ -3,7 +3,7 @@ import logogradient from "./assets/logo.png";
 import logo from "./assets/logo.png";
 
 // Profile Image
-import profile from "./assets/profile.jpg";
+import profile from "./assets/profile.JPG";
 
 // Tech stack images
 // Web
@@ -73,7 +73,7 @@ export const personalDetails = {
   name: "Sena Takele",
   tagline: "But, you can call me Sentack :)",
   img: profile,
-  about1: `Full-stack engineer with 3 years of experience in the MERN stack, specializing in building scalable and user-friendly web applications. Recently earned a Software Engineering degree, combining academic knowledge with real-world expertise. Skilled in front-end and back-end development, problem-solving, and delivering high-quality software solutions through collaboration and innovation.`
+  about1: `Full-stack engineer with 3 years of experience in the MERN stack, specializing in building scalable and user-friendly web applications. Recently earned a Software Engineering degree, combining academic knowledge with real-world expertise. Skilled in front-end and back-end development, problem-solving, and delivering high-quality software solutions through collaboration and innovation.`,
 };
 
 // Social Media
@@ -85,7 +85,8 @@ export const socialMediaUrl = {
 };
 
 // Work Experience
-export const workDetails = [{
+export const workDetails = [
+  {
     Position: "Photographer and Video Editor",
     Company: `Bini Pictures`,
     Location: "Addis Ababa",
@@ -123,7 +124,8 @@ export const workDetails = [{
 ];
 
 // Enter your Education Details here
-export const eduDetails = [{
+export const eduDetails = [
+  {
     Position: "High School Diploma",
     Company: "Medhanealem Preparatory School",
     Location: "Addis Ababa",
@@ -145,47 +147,47 @@ export const techStackDetails = [
   {
     name: "HTML",
     image: html,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "CSS",
     image: css,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "Sass",
     image: sass,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "Tailwind",
     image: tailwind,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "Bootstrap",
     image: bootstrap,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "JavaScript",
     image: js,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "React",
     image: react,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "PHP",
     image: php,
-    type: "webdev"
+    type: "webdev",
   },
   {
     name: "NodeJS",
     image: node,
-    type: "webdev"
+    type: "webdev",
   },
   // { name: "Django", image: django, type: "webdev" },
   // { name: "Flask", image: flask, type: "webdev" },
@@ -194,12 +196,12 @@ export const techStackDetails = [
   {
     name: "Flutter",
     image: flutter,
-    type: "mobile"
+    type: "mobile",
   },
   {
     name: "Dart",
     image: dart,
-    type: "mobile"
+    type: "mobile",
   },
   // { name: "Python", image: py, type: "mobile" },
 
@@ -207,54 +209,55 @@ export const techStackDetails = [
   {
     name: "MySql",
     image: mysql,
-    type: "databases"
+    type: "databases",
   },
   {
     name: "MongoDB",
     image: mongodb,
-    type: "databases"
+    type: "databases",
   },
 
   //Tools
   {
     name: "A. Studio",
     image: astudio,
-    type: "tools"
+    type: "tools",
   },
   {
     name: "VSCode",
     image: vscode,
-    type: "tools"
+    type: "tools",
   },
   {
     name: "npm",
     image: npm,
-    type: "tools"
+    type: "tools",
   },
   {
     name: "Git",
     image: git,
-    type: "tools"
+    type: "tools",
   },
   {
     name: "Figma",
     image: figma,
-    type: "tools"
+    type: "tools",
   },
   {
     name: "Vercel",
     image: vercel,
-    type: "tools"
+    type: "tools",
   },
   {
     name: "Netlify",
     image: netlify,
-    type: "tools"
+    type: "tools",
   },
 ];
 
 // Project Details
-export const projectDetails = [{
+export const projectDetails = [
+  {
     title: "Berhane Kristos Church Website",
     image: churchImage1,
     category: "web",

@@ -3,118 +3,75 @@
 import { motion } from "framer-motion";
 
 function Work({ position, company, location, type, duration }) {
-  const getTypeStyle = (type) => {
-    switch (type.toLowerCase()) {
-      case "fulltime":
-      case "full time":
-        return "bg-green-500/20 text-green-300 border border-green-500/30";
-      case "part-time":
-        return "bg-blue-500/20 text-blue-300 border border-blue-500/30";
-      case "internship":
-        return "bg-purple-500/20 text-purple-300 border border-purple-500/30";
-      default:
-        return "bg-gray-500/20 text-gray-300 border border-gray-500/30";
-    }
+  const typeBadgeClass = () => {
+    const t = type.toLowerCase();
+    if (t === "fulltime" || t === "full time")
+      return "border-zinc-600 text-zinc-400";
+    if (t === "part-time") return "border-zinc-700 text-zinc-500";
+    if (t === "internship") return "border-zinc-700 text-zinc-500";
+    return "border-zinc-800 text-zinc-600";
   };
 
   return (
     <motion.article
-      className="relative group"
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
+      className="relative pl-8 group"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
       {/* Timeline line */}
-      <div className="absolute left-4 top-8 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-blue-500 opacity-30" />
+      <div className="absolute left-0 top-0 bottom-0 w-px bg-zinc-900 group-last:hidden" />
 
       {/* Timeline dot */}
-      <motion.div
-        className="absolute left-2 top-6 w-4 h-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full shadow-lg"
-        whileHover={{ scale: 1.5 }}
-        transition={{ duration: 0.2 }}
-      >
-        <div className="absolute inset-1 bg-white rounded-full" />
-      </motion.div>
+      <div className="absolute left-0 top-2 w-px h-5 flex items-center justify-center">
+        <div className="w-2 h-2 rounded-full border border-zinc-600 bg-black -ml-[3px]" />
+      </div>
 
-      <motion.div
-        className="ml-12 p-6 bg-white/10 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 group-hover:border-purple-400/50"
-        whileHover={{ y: -5, scale: 1.02 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-          <motion.h1
-            className="text-lg md:text-xl font-bold text-white group-hover:text-purple-300 transition-colors"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+      <div className="border border-zinc-900 hover:border-zinc-700 bg-zinc-950/50 p-5 transition-colors duration-300 group-hover:bg-zinc-950">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+          <h3 className="text-sm font-semibold text-white leading-snug">
             {position}
-          </motion.h1>
-
-          <motion.div
-            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getTypeStyle(
-              type
-            )} mt-2 md:mt-0`}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.1 }}
+          </h3>
+          <span
+            className={`text-xs border px-2 py-0.5 shrink-0 ${typeBadgeClass()}`}
           >
             {type}
-          </motion.div>
+          </span>
         </div>
 
-        <motion.div
-          className="flex flex-col md:flex-row md:items-center md:justify-between text-sm text-gray-300"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6">
-            <div className="flex items-center space-x-2">
-              <motion.svg
-                className="w-4 h-4 text-purple-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
-                  clipRule="evenodd"
-                />
-              </motion.svg>
-              <span className="font-medium text-white">{company}</span>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <motion.svg
-                className="w-4 h-4 text-blue-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                whileHover={{ scale: 1.2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                  clipRule="evenodd"
-                />
-              </motion.svg>
-              <span className="text-gray-300">{location}</span>
-            </div>
-          </div>
-
-          <motion.div
-            className="flex items-center space-x-2 mt-2 md:mt-0"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
+        <div className="flex flex-col sm:flex-row sm:items-center gap-x-5 gap-y-1 text-xs text-zinc-500">
+          <span className="flex items-center gap-1.5">
             <svg
-              className="w-4 h-4 text-green-400"
+              className="w-3 h-3 text-zinc-600"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                clipRule="evenodd"
+              />
+            </svg>
+            {company}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <svg
+              className="w-3 h-3 text-zinc-600"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clipRule="evenodd"
+              />
+            </svg>
+            {location}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <svg
+              className="w-3 h-3 text-zinc-600"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -124,18 +81,10 @@ function Work({ position, company, location, type, duration }) {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="font-medium text-white">{duration}</span>
-          </motion.div>
-        </motion.div>
-
-        {/* Decorative gradient line */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        />
-      </motion.div>
+            {duration}
+          </span>
+        </div>
+      </div>
     </motion.article>
   );
 }

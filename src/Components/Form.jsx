@@ -6,241 +6,139 @@ import { contactDetails } from "../Details";
 
 function Form() {
   const { email, phone } = contactDetails;
-  const [formData, setFormData] = useState({
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
+      setSubmitted(true);
       setFormData({ email: "", subject: "", message: "" });
-      alert("Message sent successfully!");
-    }, 2000);
+      setTimeout(() => setSubmitted(false), 4000);
+    }, 1800);
   };
 
+  const inputClass =
+    "w-full bg-transparent border border-zinc-800 text-white text-sm px-4 py-3 placeholder-zinc-700 focus:border-zinc-500 transition-colors duration-200 outline-none";
+
   return (
-    <motion.div
-      className="max-w-2xl mx-auto"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl p-8 border border-white/20">
-        <motion.form
-          onSubmit={handleSubmit}
-          className="space-y-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          {/* Email Field */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-white"
-            >
-              Email Address
-            </label>
-            <motion.input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-              placeholder="your.email@example.com"
-              whileFocus={{ scale: 1.02 }}
-            />
-          </motion.div>
-
-          {/* Subject Field */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            <label
-              htmlFor="subject"
-              className="block text-sm font-semibold text-white"
-            >
-              Subject
-            </label>
-            <motion.input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-              placeholder="What's this about?"
-              whileFocus={{ scale: 1.02 }}
-            />
-          </motion.div>
-
-          {/* Message Field */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          >
-            <label
-              htmlFor="message"
-              className="block text-sm font-semibold text-white"
-            >
-              Message
-            </label>
-            <motion.textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows="6"
-              required
-              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
-              placeholder="Tell me about your project or just say hello!"
-              whileFocus={{ scale: 1.02 }}
-            />
-          </motion.div>
-
-          {/* Submit Button and Contact Info */}
-          <motion.div
-            className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
-            <motion.button
-              type="submit"
-              disabled={isSubmitting}
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-blue-700 focus:ring-4 focus:ring-purple-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isSubmitting ? (
-                <div className="flex items-center space-x-2">
-                  <motion.div
-                    className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 1,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "linear",
-                    }}
-                  />
-                  <span>Sending...</span>
-                </div>
-              ) : (
-                "Send Message"
-              )}
-            </motion.button>
-
-            {/* Quick Contact Icons */}
-            <div className="flex items-center space-x-4">
-              <motion.a
-                href={`tel:${phone}`}
-                className="p-3 bg-green-500/20 text-green-300 rounded-xl hover:bg-green-500/30 transition-colors border border-green-400/30"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-              </motion.a>
-
-              <motion.a
-                href={`mailto:${email}`}
-                className="p-3 bg-blue-500/20 text-blue-300 rounded-xl hover:bg-blue-500/30 transition-colors border border-blue-400/30"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-              </motion.a>
-            </div>
-          </motion.div>
-        </motion.form>
-
-        {/* Contact Information */}
+    <div>
+      {submitted && (
         <motion.div
-          className="mt-8 pt-8 border-t border-white/20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.5 }}
+          className="mb-5 border border-zinc-700 p-4 text-sm text-zinc-300 flex items-center gap-3"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
         >
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Get in Touch
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-purple-500/20 rounded-lg border border-purple-400/30">
-                <svg
-                  className="w-4 h-4 text-purple-300"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-sm text-gray-300">Email</p>
-                <p className="text-sm font-medium text-white">{email}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-green-500/20 rounded-lg border border-green-400/30">
-                <svg
-                  className="w-4 h-4 text-green-300"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-sm text-gray-300">Phone</p>
-                <p className="text-sm font-medium text-white">{phone}</p>
-              </div>
-            </div>
-          </div>
+          <svg className="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          Message sent successfully. I'll get back to you soon.
         </motion.div>
-      </div>
-    </motion.div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="email" className="block text-xs text-zinc-500 uppercase tracking-widest mb-2">
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className={inputClass}
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="subject" className="block text-xs text-zinc-500 uppercase tracking-widest mb-2">
+            Subject
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+            className={inputClass}
+            placeholder="What's this about?"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="message" className="block text-xs text-zinc-500 uppercase tracking-widest mb-2">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={6}
+            required
+            className={`${inputClass} resize-none`}
+            placeholder="Tell me about your project or just say hello..."
+          />
+        </div>
+
+        <div className="flex items-center justify-between pt-2 gap-4">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="inline-flex items-center gap-2 px-7 py-3 bg-white text-black text-sm font-medium hover:bg-zinc-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? (
+              <>
+                <svg className="w-4 h-4 spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </>
+            )}
+          </button>
+
+          <div className="flex items-center gap-3">
+            <a
+              href={`tel:${phone}`}
+              title="Call"
+              className="w-9 h-9 border border-zinc-800 text-zinc-500 hover:text-white hover:border-zinc-600 flex items-center justify-center transition-colors"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+            </a>
+            <a
+              href={`mailto:${email}`}
+              title="Email"
+              className="w-9 h-9 border border-zinc-800 text-zinc-500 hover:text-white hover:border-zinc-600 flex items-center justify-center transition-colors"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }
 
